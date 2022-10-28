@@ -1,4 +1,7 @@
-const baseUrl = 'https://swapi.dev/api';
+const kBaseUrl = 'https://swapi.dev/api';
+const kSightingUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+const kConnectionKey = '__connection__';
 
 class Failure {
   final String message;
@@ -17,7 +20,7 @@ int getIdFromUrl(String url) {
   if (segments.isEmpty) {
     return 0;
   }
-  final id = segments.last;
+  final id = segments[2];
   return int.tryParse(id) ?? 0;
 }
 
