@@ -10,6 +10,8 @@ import 'package:urbetrack_challenge/router/app_router.dart';
 import 'package:urbetrack_challenge/starwars/bloc/starwars_bloc.dart';
 import 'package:urbetrack_challenge/starwars/data/api/starwars_api.dart';
 import 'package:urbetrack_challenge/starwars/data/repository/starwars_repository.dart';
+import 'package:urbetrack_challenge/theme/cubit/theme_cubit.dart';
+import 'package:urbetrack_challenge/theme/custom_theme.dart';
 
 import 'bloc_observer.dart';
 
@@ -20,6 +22,7 @@ void main() async {
   Bloc.observer = MyBlocObserver();
 
   final connection = storage.read(kConnectionKey);
+  final isDark = storage.read(kIsDarkKey);
 
   final dio = Dio();
   final StarWarsApi starWarsApi = SwapiApiClient(dio);
@@ -38,6 +41,10 @@ void main() async {
               providers: [
                 BlocProvider.value(value: starWarsBloc),
                 BlocProvider(
+                    create: (context) => ThemeCubit(
+                          isDark == null ? false : isDark as bool,
+                        )),
+                BlocProvider(
                     create: (context) => ConnectionCubit(
                         connection == null ? false : connection as bool)),
               ],
@@ -54,7 +61,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = context.watch<ThemeCubit>().state;
+
     return MaterialApp.router(
+      theme: isDark ? CustomTheme.darkTheme : CustomTheme.lightTheme,
+      debugShowCheckedModeBanner: false,
       routerDelegate: router.delegate(),
       routeInformationParser: router.defaultRouteParser(),
     );

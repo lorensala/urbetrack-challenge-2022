@@ -1,13 +1,23 @@
+import 'package:flutter/rendering.dart';
+
 const kBaseUrl = 'https://swapi.dev/api';
 const kSightingUrl = 'https://jsonplaceholder.typicode.com/posts';
+const kAssetsSvgPath = 'assets/svg';
+const kAssetsLottiePath = 'assets/lottie';
 
 const kConnectionKey = '__connection__';
+const kIsDarkKey = '__isDark__';
+
+const kPagePadding = EdgeInsets.all(16);
+const kBorderRadius = BorderRadius.all(Radius.circular(8));
 
 class Failure {
   final String message;
 
   Failure([this.message = 'Something went wrong']);
 }
+
+String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
 
 /// Returns the id from the url
 ///

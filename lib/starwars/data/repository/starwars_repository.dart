@@ -34,7 +34,7 @@ class StarWarsRepository {
           id: getIdFromUrl(character.url),
           birthYear: character.birthYear,
           eyeColor: character.eyeColor,
-          gender: character.gender,
+          gender: capitalize(character.gender),
           hairColor: character.hairColor,
           height: character.height,
           homeworld: character.homeworld,

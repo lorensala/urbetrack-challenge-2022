@@ -17,10 +17,28 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    HomeRoute.name: (routeData) {
+    MainRouter.name: (routeData) {
       return AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const HomeScreen(),
+        child: const MainScaffold(),
+      );
+    },
+    CharacterRouter.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const EmptyRouterPage(),
+      );
+    },
+    ConnectionRouter.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const ConnectionScreen(),
+      );
+    },
+    CharactersListRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const CharactersListScreen(),
       );
     },
     CharacterDetailsRoute.name: (routeData) {
@@ -38,26 +56,84 @@ class _$AppRouter extends RootStackRouter {
   @override
   List<RouteConfig> get routes => [
         RouteConfig(
-          HomeRoute.name,
+          MainRouter.name,
           path: '/',
-        ),
-        RouteConfig(
-          CharacterDetailsRoute.name,
-          path: '/character-details-screen',
-        ),
+          children: [
+            RouteConfig(
+              CharacterRouter.name,
+              path: '',
+              parent: MainRouter.name,
+              children: [
+                RouteConfig(
+                  CharactersListRoute.name,
+                  path: '',
+                  parent: CharacterRouter.name,
+                ),
+                RouteConfig(
+                  CharacterDetailsRoute.name,
+                  path: 'character-details-screen',
+                  parent: CharacterRouter.name,
+                ),
+              ],
+            ),
+            RouteConfig(
+              ConnectionRouter.name,
+              path: 'connection-screen',
+              parent: MainRouter.name,
+            ),
+          ],
+        )
       ];
 }
 
 /// generated route for
-/// [HomeScreen]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute()
+/// [MainScaffold]
+class MainRouter extends PageRouteInfo<void> {
+  const MainRouter({List<PageRouteInfo>? children})
       : super(
-          HomeRoute.name,
+          MainRouter.name,
           path: '/',
+          initialChildren: children,
         );
 
-  static const String name = 'HomeRoute';
+  static const String name = 'MainRouter';
+}
+
+/// generated route for
+/// [EmptyRouterPage]
+class CharacterRouter extends PageRouteInfo<void> {
+  const CharacterRouter({List<PageRouteInfo>? children})
+      : super(
+          CharacterRouter.name,
+          path: '',
+          initialChildren: children,
+        );
+
+  static const String name = 'CharacterRouter';
+}
+
+/// generated route for
+/// [ConnectionScreen]
+class ConnectionRouter extends PageRouteInfo<void> {
+  const ConnectionRouter()
+      : super(
+          ConnectionRouter.name,
+          path: 'connection-screen',
+        );
+
+  static const String name = 'ConnectionRouter';
+}
+
+/// generated route for
+/// [CharactersListScreen]
+class CharactersListRoute extends PageRouteInfo<void> {
+  const CharactersListRoute()
+      : super(
+          CharactersListRoute.name,
+          path: '',
+        );
+
+  static const String name = 'CharactersListRoute';
 }
 
 /// generated route for
@@ -68,7 +144,7 @@ class CharacterDetailsRoute extends PageRouteInfo<CharacterDetailsRouteArgs> {
     required CharacterResponse characterResponse,
   }) : super(
           CharacterDetailsRoute.name,
-          path: '/character-details-screen',
+          path: 'character-details-screen',
           args: CharacterDetailsRouteArgs(
             key: key,
             characterResponse: characterResponse,
