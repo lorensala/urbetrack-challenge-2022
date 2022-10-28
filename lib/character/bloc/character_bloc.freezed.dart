@@ -18,33 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CharacterEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() getCharacters,
+    required TResult Function(int id) getCharacter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? getCharacters,
+    TResult? Function(int id)? getCharacter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? getCharacters,
+    TResult Function(int id)? getCharacter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_GetCharacters value) getCharacters,
+    required TResult Function(_GetCharacter value) getCharacter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_GetCharacters value)? getCharacters,
+    TResult? Function(_GetCharacter value)? getCharacter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_GetCharacters value)? getCharacters,
+    TResult Function(_GetCharacter value)? getCharacter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,34 +75,35 @@ class _$CharacterEventCopyWithImpl<$Res, $Val extends CharacterEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_GetCharactersCopyWith<$Res> {
+  factory _$$_GetCharactersCopyWith(
+          _$_GetCharacters value, $Res Function(_$_GetCharacters) then) =
+      __$$_GetCharactersCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$CharacterEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_GetCharactersCopyWithImpl<$Res>
+    extends _$CharacterEventCopyWithImpl<$Res, _$_GetCharacters>
+    implements _$$_GetCharactersCopyWith<$Res> {
+  __$$_GetCharactersCopyWithImpl(
+      _$_GetCharacters _value, $Res Function(_$_GetCharacters) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_GetCharacters implements _GetCharacters {
+  const _$_GetCharacters();
 
   @override
   String toString() {
-    return 'CharacterEvent.started()';
+    return 'CharacterEvent.getCharacters()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$_GetCharacters);
   }
 
   @override
@@ -105,27 +112,30 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() getCharacters,
+    required TResult Function(int id) getCharacter,
   }) {
-    return started();
+    return getCharacters();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? getCharacters,
+    TResult? Function(int id)? getCharacter,
   }) {
-    return started?.call();
+    return getCharacters?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? getCharacters,
+    TResult Function(int id)? getCharacter,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (getCharacters != null) {
+      return getCharacters();
     }
     return orElse();
   }
@@ -133,69 +143,183 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_GetCharacters value) getCharacters,
+    required TResult Function(_GetCharacter value) getCharacter,
   }) {
-    return started(this);
+    return getCharacters(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_GetCharacters value)? getCharacters,
+    TResult? Function(_GetCharacter value)? getCharacter,
   }) {
-    return started?.call(this);
+    return getCharacters?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_GetCharacters value)? getCharacters,
+    TResult Function(_GetCharacter value)? getCharacter,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (getCharacters != null) {
+      return getCharacters(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements CharacterEvent {
-  const factory _Started() = _$_Started;
+abstract class _GetCharacters implements CharacterEvent {
+  const factory _GetCharacters() = _$_GetCharacters;
+}
+
+/// @nodoc
+abstract class _$$_GetCharacterCopyWith<$Res> {
+  factory _$$_GetCharacterCopyWith(
+          _$_GetCharacter value, $Res Function(_$_GetCharacter) then) =
+      __$$_GetCharacterCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$_GetCharacterCopyWithImpl<$Res>
+    extends _$CharacterEventCopyWithImpl<$Res, _$_GetCharacter>
+    implements _$$_GetCharacterCopyWith<$Res> {
+  __$$_GetCharacterCopyWithImpl(
+      _$_GetCharacter _value, $Res Function(_$_GetCharacter) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_GetCharacter(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetCharacter implements _GetCharacter {
+  const _$_GetCharacter(this.id);
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'CharacterEvent.getCharacter(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetCharacter &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetCharacterCopyWith<_$_GetCharacter> get copyWith =>
+      __$$_GetCharacterCopyWithImpl<_$_GetCharacter>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCharacters,
+    required TResult Function(int id) getCharacter,
+  }) {
+    return getCharacter(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCharacters,
+    TResult? Function(int id)? getCharacter,
+  }) {
+    return getCharacter?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCharacters,
+    TResult Function(int id)? getCharacter,
+    required TResult orElse(),
+  }) {
+    if (getCharacter != null) {
+      return getCharacter(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCharacters value) getCharacters,
+    required TResult Function(_GetCharacter value) getCharacter,
+  }) {
+    return getCharacter(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCharacters value)? getCharacters,
+    TResult? Function(_GetCharacter value)? getCharacter,
+  }) {
+    return getCharacter?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCharacters value)? getCharacters,
+    TResult Function(_GetCharacter value)? getCharacter,
+    required TResult orElse(),
+  }) {
+    if (getCharacter != null) {
+      return getCharacter(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetCharacter implements CharacterEvent {
+  const factory _GetCharacter(final int id) = _$_GetCharacter;
+
+  int get id;
+  @JsonKey(ignore: true)
+  _$$_GetCharacterCopyWith<_$_GetCharacter> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$CharacterState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+  List<Character> get characters => throw _privateConstructorUsedError;
+  String? get next => throw _privateConstructorUsedError;
+  int get count => throw _privateConstructorUsedError;
+  CharacterStatus get status => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
+  bool get hasReachedMax => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CharacterStateCopyWith<CharacterState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -204,6 +328,14 @@ abstract class $CharacterStateCopyWith<$Res> {
   factory $CharacterStateCopyWith(
           CharacterState value, $Res Function(CharacterState) then) =
       _$CharacterStateCopyWithImpl<$Res, CharacterState>;
+  @useResult
+  $Res call(
+      {List<Character> characters,
+      String? next,
+      int count,
+      CharacterStatus status,
+      String? message,
+      bool hasReachedMax});
 }
 
 /// @nodoc
@@ -215,99 +347,204 @@ class _$CharacterStateCopyWithImpl<$Res, $Val extends CharacterState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characters = null,
+    Object? next = freezed,
+    Object? count = null,
+    Object? status = null,
+    Object? message = freezed,
+    Object? hasReachedMax = null,
+  }) {
+    return _then(_value.copyWith(
+      characters: null == characters
+          ? _value.characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as List<Character>,
+      next: freezed == next
+          ? _value.next
+          : next // ignore: cast_nullable_to_non_nullable
+              as String?,
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as CharacterStatus,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hasReachedMax: null == hasReachedMax
+          ? _value.hasReachedMax
+          : hasReachedMax // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$_CharacterStateCopyWith<$Res>
+    implements $CharacterStateCopyWith<$Res> {
+  factory _$$_CharacterStateCopyWith(
+          _$_CharacterState value, $Res Function(_$_CharacterState) then) =
+      __$$_CharacterStateCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {List<Character> characters,
+      String? next,
+      int count,
+      CharacterStatus status,
+      String? message,
+      bool hasReachedMax});
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$CharacterStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$_CharacterStateCopyWithImpl<$Res>
+    extends _$CharacterStateCopyWithImpl<$Res, _$_CharacterState>
+    implements _$$_CharacterStateCopyWith<$Res> {
+  __$$_CharacterStateCopyWithImpl(
+      _$_CharacterState _value, $Res Function(_$_CharacterState) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characters = null,
+    Object? next = freezed,
+    Object? count = null,
+    Object? status = null,
+    Object? message = freezed,
+    Object? hasReachedMax = null,
+  }) {
+    return _then(_$_CharacterState(
+      characters: null == characters
+          ? _value._characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as List<Character>,
+      next: freezed == next
+          ? _value.next
+          : next // ignore: cast_nullable_to_non_nullable
+              as String?,
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as CharacterStatus,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hasReachedMax: null == hasReachedMax
+          ? _value.hasReachedMax
+          : hasReachedMax // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$_CharacterState implements _CharacterState {
+  const _$_CharacterState(
+      {final List<Character> characters = const [],
+      this.next,
+      this.count = 0,
+      this.status = CharacterStatus.initial,
+      this.message,
+      this.hasReachedMax = false})
+      : _characters = characters;
+
+  final List<Character> _characters;
+  @override
+  @JsonKey()
+  List<Character> get characters {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_characters);
+  }
+
+  @override
+  final String? next;
+  @override
+  @JsonKey()
+  final int count;
+  @override
+  @JsonKey()
+  final CharacterStatus status;
+  @override
+  final String? message;
+  @override
+  @JsonKey()
+  final bool hasReachedMax;
 
   @override
   String toString() {
-    return 'CharacterState.initial()';
+    return 'CharacterState(characters: $characters, next: $next, count: $count, status: $status, message: $message, hasReachedMax: $hasReachedMax)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType &&
+            other is _$_CharacterState &&
+            const DeepCollectionEquality()
+                .equals(other._characters, _characters) &&
+            (identical(other.next, next) || other.next == next) &&
+            (identical(other.count, count) || other.count == count) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.hasReachedMax, hasReachedMax) ||
+                other.hasReachedMax == hasReachedMax));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_characters),
+      next,
+      count,
+      status,
+      message,
+      hasReachedMax);
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$_CharacterStateCopyWith<_$_CharacterState> get copyWith =>
+      __$$_CharacterStateCopyWithImpl<_$_CharacterState>(this, _$identity);
 }
 
-abstract class _Initial implements CharacterState {
-  const factory _Initial() = _$_Initial;
+abstract class _CharacterState implements CharacterState {
+  const factory _CharacterState(
+      {final List<Character> characters,
+      final String? next,
+      final int count,
+      final CharacterStatus status,
+      final String? message,
+      final bool hasReachedMax}) = _$_CharacterState;
+
+  @override
+  List<Character> get characters;
+  @override
+  String? get next;
+  @override
+  int get count;
+  @override
+  CharacterStatus get status;
+  @override
+  String? get message;
+  @override
+  bool get hasReachedMax;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CharacterStateCopyWith<_$_CharacterState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

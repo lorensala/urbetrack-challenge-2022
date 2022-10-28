@@ -9,13 +9,14 @@ class Character with _$Character {
     required String birthYear,
     required String eyeColor,
     required String gender,
-    required List<String> hairColor,
+    required String hairColor,
     required String height,
     required String homeworld,
     required String mass,
     required String name,
-    required String starships,
+    required List<String> starships,
     required List<String> vehicles,
+    required String url,
   }) = _Character;
 
   factory Character.fromJson(Map<String, dynamic> json) =>

@@ -23,13 +23,14 @@ mixin _$Character {
   String get birthYear => throw _privateConstructorUsedError;
   String get eyeColor => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
-  List<String> get hairColor => throw _privateConstructorUsedError;
+  String get hairColor => throw _privateConstructorUsedError;
   String get height => throw _privateConstructorUsedError;
   String get homeworld => throw _privateConstructorUsedError;
   String get mass => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get starships => throw _privateConstructorUsedError;
+  List<String> get starships => throw _privateConstructorUsedError;
   List<String> get vehicles => throw _privateConstructorUsedError;
+  String get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,13 +47,14 @@ abstract class $CharacterCopyWith<$Res> {
       {String birthYear,
       String eyeColor,
       String gender,
-      List<String> hairColor,
+      String hairColor,
       String height,
       String homeworld,
       String mass,
       String name,
-      String starships,
-      List<String> vehicles});
+      List<String> starships,
+      List<String> vehicles,
+      String url});
 }
 
 /// @nodoc
@@ -78,6 +80,7 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
     Object? name = null,
     Object? starships = null,
     Object? vehicles = null,
+    Object? url = null,
   }) {
     return _then(_value.copyWith(
       birthYear: null == birthYear
@@ -95,7 +98,7 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
       hairColor: null == hairColor
           ? _value.hairColor
           : hairColor // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as String,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -115,11 +118,15 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
       starships: null == starships
           ? _value.starships
           : starships // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<String>,
       vehicles: null == vehicles
           ? _value.vehicles
           : vehicles // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -135,13 +142,14 @@ abstract class _$$_CharacterCopyWith<$Res> implements $CharacterCopyWith<$Res> {
       {String birthYear,
       String eyeColor,
       String gender,
-      List<String> hairColor,
+      String hairColor,
       String height,
       String homeworld,
       String mass,
       String name,
-      String starships,
-      List<String> vehicles});
+      List<String> starships,
+      List<String> vehicles,
+      String url});
 }
 
 /// @nodoc
@@ -165,6 +173,7 @@ class __$$_CharacterCopyWithImpl<$Res>
     Object? name = null,
     Object? starships = null,
     Object? vehicles = null,
+    Object? url = null,
   }) {
     return _then(_$_Character(
       birthYear: null == birthYear
@@ -180,9 +189,9 @@ class __$$_CharacterCopyWithImpl<$Res>
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
       hairColor: null == hairColor
-          ? _value._hairColor
+          ? _value.hairColor
           : hairColor // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as String,
       height: null == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -200,13 +209,17 @@ class __$$_CharacterCopyWithImpl<$Res>
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       starships: null == starships
-          ? _value.starships
+          ? _value._starships
           : starships // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<String>,
       vehicles: null == vehicles
           ? _value._vehicles
           : vehicles // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -218,14 +231,15 @@ class _$_Character implements _Character {
       {required this.birthYear,
       required this.eyeColor,
       required this.gender,
-      required final List<String> hairColor,
+      required this.hairColor,
       required this.height,
       required this.homeworld,
       required this.mass,
       required this.name,
-      required this.starships,
-      required final List<String> vehicles})
-      : _hairColor = hairColor,
+      required final List<String> starships,
+      required final List<String> vehicles,
+      required this.url})
+      : _starships = starships,
         _vehicles = vehicles;
 
   factory _$_Character.fromJson(Map<String, dynamic> json) =>
@@ -237,13 +251,8 @@ class _$_Character implements _Character {
   final String eyeColor;
   @override
   final String gender;
-  final List<String> _hairColor;
   @override
-  List<String> get hairColor {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_hairColor);
-  }
-
+  final String hairColor;
   @override
   final String height;
   @override
@@ -252,8 +261,13 @@ class _$_Character implements _Character {
   final String mass;
   @override
   final String name;
+  final List<String> _starships;
   @override
-  final String starships;
+  List<String> get starships {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_starships);
+  }
+
   final List<String> _vehicles;
   @override
   List<String> get vehicles {
@@ -262,8 +276,11 @@ class _$_Character implements _Character {
   }
 
   @override
+  final String url;
+
+  @override
   String toString() {
-    return 'Character(birthYear: $birthYear, eyeColor: $eyeColor, gender: $gender, hairColor: $hairColor, height: $height, homeworld: $homeworld, mass: $mass, name: $name, starships: $starships, vehicles: $vehicles)';
+    return 'Character(birthYear: $birthYear, eyeColor: $eyeColor, gender: $gender, hairColor: $hairColor, height: $height, homeworld: $homeworld, mass: $mass, name: $name, starships: $starships, vehicles: $vehicles, url: $url)';
   }
 
   @override
@@ -276,16 +293,17 @@ class _$_Character implements _Character {
             (identical(other.eyeColor, eyeColor) ||
                 other.eyeColor == eyeColor) &&
             (identical(other.gender, gender) || other.gender == gender) &&
-            const DeepCollectionEquality()
-                .equals(other._hairColor, _hairColor) &&
+            (identical(other.hairColor, hairColor) ||
+                other.hairColor == hairColor) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.homeworld, homeworld) ||
                 other.homeworld == homeworld) &&
             (identical(other.mass, mass) || other.mass == mass) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.starships, starships) ||
-                other.starships == starships) &&
-            const DeepCollectionEquality().equals(other._vehicles, _vehicles));
+            const DeepCollectionEquality()
+                .equals(other._starships, _starships) &&
+            const DeepCollectionEquality().equals(other._vehicles, _vehicles) &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @JsonKey(ignore: true)
@@ -295,13 +313,14 @@ class _$_Character implements _Character {
       birthYear,
       eyeColor,
       gender,
-      const DeepCollectionEquality().hash(_hairColor),
+      hairColor,
       height,
       homeworld,
       mass,
       name,
-      starships,
-      const DeepCollectionEquality().hash(_vehicles));
+      const DeepCollectionEquality().hash(_starships),
+      const DeepCollectionEquality().hash(_vehicles),
+      url);
 
   @JsonKey(ignore: true)
   @override
@@ -322,13 +341,14 @@ abstract class _Character implements Character {
       {required final String birthYear,
       required final String eyeColor,
       required final String gender,
-      required final List<String> hairColor,
+      required final String hairColor,
       required final String height,
       required final String homeworld,
       required final String mass,
       required final String name,
-      required final String starships,
-      required final List<String> vehicles}) = _$_Character;
+      required final List<String> starships,
+      required final List<String> vehicles,
+      required final String url}) = _$_Character;
 
   factory _Character.fromJson(Map<String, dynamic> json) =
       _$_Character.fromJson;
@@ -340,7 +360,7 @@ abstract class _Character implements Character {
   @override
   String get gender;
   @override
-  List<String> get hairColor;
+  String get hairColor;
   @override
   String get height;
   @override
@@ -350,9 +370,11 @@ abstract class _Character implements Character {
   @override
   String get name;
   @override
-  String get starships;
+  List<String> get starships;
   @override
   List<String> get vehicles;
+  @override
+  String get url;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterCopyWith<_$_Character> get copyWith =>
