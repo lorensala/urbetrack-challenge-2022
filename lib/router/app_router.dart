@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:urbetrack_challenge/connection/view/connection_screen.dart';
-import 'package:urbetrack_challenge/starwars/view/character_details_screen.dart';
-import 'package:urbetrack_challenge/starwars/view/character_list_screen.dart';
-import 'package:urbetrack_challenge/widgets/main_scaffold.dart';
+import '../connection/view/connection_screen.dart';
+import '../starwars/view/character_details_screen.dart';
+import '../starwars/view/character_list_screen.dart';
+import '../widgets/main_scaffold.dart';
 
 import '../starwars/data/models/models.dart';
 

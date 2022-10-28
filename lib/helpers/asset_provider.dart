@@ -6,6 +6,8 @@ class AssetProvider {
   static const String chevronRight = '$kAssetsSvgPath/chevron-right.svg';
   static const String sateliteDark = '$kAssetsLottiePath/satelitte-dark.json';
   static const String sateliteLight = '$kAssetsLottiePath/satelitte-light.json';
+  static const String sateliteDisconnected =
+      '$kAssetsLottiePath/satelitte-disconnected.json';
   static const String yodaDark = '$kAssetsLottiePath/yoda-dark.json';
   static const String yodaLight = '$kAssetsLottiePath/yoda-light.json';
   static const String moon = '$kAssetsSvgPath/moon-01.svg';

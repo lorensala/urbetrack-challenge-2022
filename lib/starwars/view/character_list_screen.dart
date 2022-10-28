@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:urbetrack_challenge/starwars/bloc/starwars_bloc.dart';
+import '../bloc/starwars_bloc.dart';
 
 import '../../widgets/widgets.dart';
 
@@ -20,6 +20,14 @@ class CharactersListScreen extends StatelessWidget {
             return _Error(message: state.message);
           case StarWarsStatus.reported:
           default:
+            // return ElevatedButton(
+            //     onPressed: () {
+            //       AutoRouter.of(context).push(
+            //         CharacterDetailsRoute(
+            //             characterResponse: const CharacterResponse()),
+            //       );
+            //     },
+            //     child: const Text('Click me!'));
             return const CharactersList();
         }
       },

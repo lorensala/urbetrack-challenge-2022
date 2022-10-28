@@ -14,7 +14,7 @@ class ConnectionStatus extends StatelessWidget {
     return BlocBuilder<ConnectionCubit, bool>(
       builder: (context, connected) {
         return Padding(
-          padding: kPagePadding,
+          padding: kAppPadding,
           child: CircleAvatar(
             radius: 10,
             backgroundColor: connected

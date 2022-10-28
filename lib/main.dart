@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
-import 'package:urbetrack_challenge/connection/cubit/connection_cubit.dart';
-import 'package:urbetrack_challenge/helpers/helpers.dart';
+import 'connection/cubit/connection_cubit.dart';
+import 'helpers/helpers.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:urbetrack_challenge/router/app_router.dart';
-import 'package:urbetrack_challenge/starwars/bloc/starwars_bloc.dart';
-import 'package:urbetrack_challenge/starwars/data/api/starwars_api.dart';
-import 'package:urbetrack_challenge/starwars/data/repository/starwars_repository.dart';
-import 'package:urbetrack_challenge/theme/cubit/theme_cubit.dart';
-import 'package:urbetrack_challenge/theme/custom_theme.dart';
+import 'router/app_router.dart';
+import 'starwars/bloc/starwars_bloc.dart';
+import 'starwars/data/api/starwars_api.dart';
+import 'starwars/data/repository/starwars_repository.dart';
+import 'theme/cubit/theme_cubit.dart';
+import 'theme/custom_theme.dart';
 
 import 'bloc_observer.dart';
 

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:urbetrack_challenge/helpers/helpers.dart';
-import 'package:urbetrack_challenge/starwars/data/api/starwars_api.dart';
-import 'package:urbetrack_challenge/starwars/models/character_details.dart';
+import '../../../helpers/helpers.dart';
+import '../api/starwars_api.dart';
+import '../../models/character_details.dart';
 
 import '../models/models.dart';
 

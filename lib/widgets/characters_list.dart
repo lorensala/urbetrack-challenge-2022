@@ -1,11 +1,12 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:urbetrack_challenge/helpers/asset_provider.dart';
-import 'package:urbetrack_challenge/helpers/helpers.dart';
-import 'package:urbetrack_challenge/starwars/data/models/character.dart';
+import '../helpers/asset_provider.dart';
+import '../helpers/helpers.dart';
+import '../starwars/data/models/character.dart';
 
 import '../router/app_router.dart';
 import '../starwars/bloc/starwars_bloc.dart';
@@ -33,7 +34,7 @@ class CharactersList extends HookWidget {
     return BlocBuilder<StarWarsBloc, StarWarsState>(
       builder: (context, state) {
         return ListView.separated(
-          padding: kPagePadding,
+          padding: kAppPadding,
           physics: const ClampingScrollPhysics(),
           controller: scrollController,
           itemCount: state.hasReachedMax
@@ -48,7 +49,9 @@ class CharactersList extends HookWidget {
                         width: 24,
                         child: CircularProgressIndicator()),
                   )
-                : CharacterListTile(state.characters[index]);
+                : ZoomIn(
+                    duration: const Duration(milliseconds: 100),
+                    child: CharacterListTile(state.characters[index]));
           },
         );
       },
@@ -74,11 +77,11 @@ class CharacterListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.router.push(
+      onTap: () => AutoRouter.of(context).push(
         CharacterDetailsRoute(characterResponse: characterResponse),
       ),
       child: Container(
-        padding: kPagePadding,
+        padding: kAppPadding,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.secondary,
           borderRadius: const BorderRadius.all(Radius.circular(16)),
@@ -88,9 +91,11 @@ class CharacterListTile extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  characterResponse.name,
-                  style: Theme.of(context).textTheme.headlineMedium,
+                FittedBox(
+                  child: Text(
+                    characterResponse.name,
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Text(capitalize(characterResponse.gender),

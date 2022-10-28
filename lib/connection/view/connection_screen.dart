@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
-import 'package:urbetrack_challenge/connection/cubit/connection_cubit.dart';
-import 'package:urbetrack_challenge/helpers/asset_provider.dart';
-import 'package:urbetrack_challenge/helpers/helpers.dart';
+import '../cubit/connection_cubit.dart';
+import '../../helpers/helpers.dart';
 
 import '../../widgets/widgets.dart';
 
@@ -14,53 +12,103 @@ class ConnectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: kPagePadding,
+        padding: kAppPadding,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(
-                height: 200,
-                width: 200,
-                child: Lottie.asset(
-                  Theme.of(context).brightness == Brightness.dark
-                      ? AssetProvider.sateliteDark
-                      : AssetProvider.sateliteLight,
-                )),
-            Text(
-              'Warning!',
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineLarge!
-                  .copyWith(color: Theme.of(context).colorScheme.error),
-            ),
-            Text(
-              'Don\'t allow your connection for too long, or else they will take over the world!',
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineMedium!
-                  .copyWith(fontWeight: FontWeight.w500),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 25),
+            const _ConnectionStatusText(),
             BlocBuilder<ConnectionCubit, bool>(
               builder: (context, conn) {
-                return Button(
-                  color: conn
-                      ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).colorScheme.secondary,
-                  child: Text(conn ? 'Disconnect' : 'Connect',
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: conn
-                              ? Theme.of(context).colorScheme.onPrimary
-                              : Theme.of(context).colorScheme.onBackground)),
-                  onPressed: () =>
-                      context.read<ConnectionCubit>().changeConnectionStatus(),
-                );
+                return Satellite(isConnected: conn);
               },
-            )
+            ),
+            const _ConnectionMessage(),
+            const _ConnectionButton()
           ],
         ),
       ),
+    );
+  }
+}
+
+class _ConnectionStatusText extends StatelessWidget {
+  const _ConnectionStatusText();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ConnectionCubit, bool>(
+      builder: (context, conn) {
+        return Text.rich(
+          TextSpan(
+            text: 'Status: ',
+            style: Theme.of(context).textTheme.headlineMedium,
+            children: [
+              TextSpan(
+                text: conn ? 'Connected' : 'Disconnected',
+                style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                      color: conn
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context).colorScheme.error,
+                    ),
+              ),
+            ],
+          ),
+          style: Theme.of(context).textTheme.headlineLarge,
+        );
+      },
+    );
+  }
+}
+
+class _ConnectionMessage extends StatelessWidget {
+  const _ConnectionMessage({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: Column(
+        children: [
+          Text(
+            'Warning!',
+            style: Theme.of(context)
+                .textTheme
+                .headlineLarge!
+                .copyWith(color: Theme.of(context).colorScheme.error),
+          ),
+          Text(
+            'Don\'t allow your connection for too long, or else they will take over the world!',
+            style: Theme.of(context)
+                .textTheme
+                .headlineMedium!
+                .copyWith(fontWeight: FontWeight.w500),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ConnectionButton extends StatelessWidget {
+  const _ConnectionButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ConnectionCubit, bool>(
+      builder: (context, conn) {
+        return Button(
+          enabled: conn,
+          label: conn ? 'Disconnect' : 'Connect',
+          isLoading: false,
+          onPressed: () =>
+              context.read<ConnectionCubit>().changeConnectionStatus(),
+        );
+      },
     );
   }
 }

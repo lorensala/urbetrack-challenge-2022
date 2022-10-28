@@ -8,7 +8,7 @@ const kAssetsLottiePath = 'assets/lottie';
 const kConnectionKey = '__connection__';
 const kIsDarkKey = '__isDark__';
 
-const kPagePadding = EdgeInsets.all(16);
+const kAppPadding = EdgeInsets.all(16);
 const kBorderRadius = BorderRadius.all(Radius.circular(8));
 
 class Failure {

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:urbetrack_challenge/helpers/helpers.dart';
-import 'package:urbetrack_challenge/starwars/data/models/models.dart';
+import '../../../helpers/helpers.dart';
+import '../models/models.dart';
 
 abstract class StarWarsApi {
   /// Get a list of people

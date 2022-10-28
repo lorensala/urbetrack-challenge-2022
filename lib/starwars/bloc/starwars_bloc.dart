@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:urbetrack_challenge/starwars/data/repository/starwars_repository.dart';
+import '../data/repository/starwars_repository.dart';
 import 'package:stream_transform/stream_transform.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
-import 'package:urbetrack_challenge/starwars/models/character_details.dart';
+import '../models/character_details.dart';
 
 import '../../helpers/helpers.dart';
 import '../data/models/models.dart';

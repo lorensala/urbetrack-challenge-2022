@@ -16,7 +16,7 @@ class ThemeStatus extends StatelessWidget {
         return GestureDetector(
             onTap: () => context.read<ThemeCubit>().toggleTheme(),
             child: Padding(
-              padding: kPagePadding,
+              padding: kAppPadding,
               child: SvgPicture.asset(
                 state ? AssetProvider.sun : AssetProvider.moon,
                 color: Theme.of(context).colorScheme.onBackground,

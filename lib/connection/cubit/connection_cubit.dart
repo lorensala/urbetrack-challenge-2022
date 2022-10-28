@@ -1,5 +1,6 @@
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:urbetrack_challenge/helpers/helpers.dart';
+
+import '../../helpers/helpers.dart';
 
 class ConnectionCubit extends HydratedCubit<bool> {
   ConnectionCubit(super.state);
