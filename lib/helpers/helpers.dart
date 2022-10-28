@@ -1,4 +1,5 @@
-import 'package:flutter/rendering.dart';
+import 'package:flutter/material.dart';
+import 'package:urbetrack_challenge/widgets/widgets.dart';
 
 const kBaseUrl = 'https://swapi.dev/api';
 const kSightingUrl = 'https://jsonplaceholder.typicode.com/posts';
@@ -34,16 +35,56 @@ int getIdFromUrl(String url) {
   return int.tryParse(id) ?? 0;
 }
 
-String? getPageFromUrl(String? url) {
-  if (url == null) {
-    return null;
+extension SnackbarExtension on BuildContext {
+  void showSuccessSnackBar(String message,
+      {Duration duration = const Duration(seconds: 3)}) {
+    ScaffoldMessenger.of(this)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(buildSuccessSnackBar(this, message, duration));
   }
-  final uri = Uri.parse(url);
-  final segments = uri.queryParameters;
 
-  if (segments.isEmpty) {
-    return '';
+  void showErrorSnackBar(String message,
+      {Duration duration = const Duration(seconds: 3)}) {
+    ScaffoldMessenger.of(this)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(buildErrorSnackBar(this, message, duration));
   }
-  final page = segments['page'];
-  return page;
+}
+
+SnackBar buildSuccessSnackBar(
+    BuildContext context, String message, Duration duration) {
+  return SnackBar(
+    duration: duration,
+    backgroundColor: Theme.of(context).colorScheme.primary,
+    content: Row(
+      children: [
+        SnackBarTimer(duration, Theme.of(context).colorScheme.background,
+            Theme.of(context).colorScheme.onBackground),
+        const SizedBox(width: 16),
+        Text(message,
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                )),
+      ],
+    ),
+  );
+}
+
+SnackBar buildErrorSnackBar(
+    BuildContext context, String message, Duration duration) {
+  return SnackBar(
+    duration: duration,
+    backgroundColor: Theme.of(context).colorScheme.error,
+    content: Row(
+      children: [
+        SnackBarTimer(duration, Theme.of(context).colorScheme.background,
+            Theme.of(context).colorScheme.onBackground),
+        const SizedBox(width: 16),
+        Text(message,
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                )),
+      ],
+    ),
+  );
 }

@@ -27,18 +27,10 @@ class CharacterDetailsScreen extends HookWidget {
       child: BlocConsumer<StarWarsBloc, StarWarsState>(
         listener: (context, state) {
           if (state.status == StarWarsStatus.reportFailed) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Something went wrong'),
-              ),
-            );
+            context.showErrorSnackBar('Report failed');
           }
           if (state.status == StarWarsStatus.reported) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Reported'),
-              ),
-            );
+            context.showSuccessSnackBar('Reported successfully');
           }
         },
         builder: (context, state) {

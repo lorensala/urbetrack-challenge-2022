@@ -14,7 +14,10 @@ class ThemeStatus extends StatelessWidget {
     return BlocBuilder<ThemeCubit, bool>(
       builder: (context, state) {
         return GestureDetector(
-            onTap: () => context.read<ThemeCubit>().toggleTheme(),
+            onTap: () {
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              context.read<ThemeCubit>().toggleTheme();
+            },
             child: Padding(
               padding: kAppPadding,
               child: SvgPicture.asset(
