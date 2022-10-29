@@ -1,5 +1,6 @@
 import 'helpers.dart';
 
+/// A class which provides assets.
 class AssetProvider {
   static const String characters = '$kAssetsSvgPath/users-03.svg';
   static const String connection = '$kAssetsSvgPath/signal-02.svg';

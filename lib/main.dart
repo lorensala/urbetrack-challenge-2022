@@ -16,6 +16,11 @@ import 'theme/custom_theme.dart';
 
 import 'bloc_observer.dart';
 
+/// {@template app}
+/// Urbetrack Challenge App.
+///
+/// Author: [Lorenzo Sala]
+/// {@endtemplate}
 void main() async {
   // Initialize HydratedBloc
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,8 +39,8 @@ void main() async {
 
   // Initialize Dio
   final dio = Dio()
-    ..options.connectTimeout = 5000
-    ..options.receiveTimeout = 5000;
+    ..options.connectTimeout = 10000
+    ..options.receiveTimeout = 10000;
 
   // Initialize StarWarsRepository and StarWarsBloc
   final StarWarsApi starWarsApi = SwapiApi(dio);

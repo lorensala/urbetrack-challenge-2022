@@ -29,18 +29,23 @@ class CharacterDto with _$CharacterDto {
     return Character(
         id: getIdFromUrl(url),
         birthYear: birthYear,
-        eyeColor: eyeColor,
-        gender: gender,
-        hairColor: hairColor,
+        eyeColor: eyeColor.toUpperCase(),
+        gender: gender.toUpperCase(),
+        hairColor: hairColor.toUpperCase(),
         height: int.tryParse(height) ?? 0,
         mass: int.tryParse(mass) ?? 0,
         name: name,
-        skinColor: skinColor,
         homeworld: Homeworld.empty(),
-        starship: [],
-        vehicle: []);
+        starships: [],
+        vehicles: []);
   }
 
   factory CharacterDto.fromJson(Map<String, dynamic> json) =>
       _$CharacterDtoFromJson(json);
+}
+
+extension StringExtension on String {
+  String get capitalize {
+    return "${this[0].toUpperCase()}${substring(1)}";
+  }
 }

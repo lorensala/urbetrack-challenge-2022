@@ -135,11 +135,11 @@ class _CharacterDetails extends StatelessWidget {
         DetailContainer(
             label: 'Vehicules',
             value: getStringFromList(
-                character.vehicle.map((e) => e.name).toList())),
+                character.vehicles.map((e) => e.name).toList())),
         DetailContainer(
             label: 'Starships',
             value: getStringFromList(
-                character.starship.map((e) => e.name).toList()))
+                character.starships.map((e) => e.name).toList()))
       ],
     );
   }

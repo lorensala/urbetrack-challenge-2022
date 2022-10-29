@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 
+import 'api_failure.dart';
+
 const kBaseUrl = 'https://swapi.dev/api';
 const kSightingUrl = 'https://jsonplaceholder.typicode.com/posts';
 
@@ -10,7 +12,7 @@ abstract class StarWarsApi {
   ///
   /// Returns a [PeopleResponse] object
   ///
-  /// Throws [StarWarsFailure] if the call fails
+  /// Throws [ApiFailure] if the call fails
   Future<Response> getPeople(int page);
 
   // Get a character
@@ -19,7 +21,7 @@ abstract class StarWarsApi {
   ///
   /// Returns a [Response] object
   ///
-  /// Throws [StarWarsFailure] if the call fails
+  /// Throws [ApiFailure] if the call fails
   Future<Response> getCharacter(int id);
 
   /// Get a home world
@@ -28,7 +30,7 @@ abstract class StarWarsApi {
   ///
   /// Returns a [PlanetResponse] object
   ///
-  /// Throws [StarWarsFailure] if the call fails
+  /// Throws [ApiFailure] if the call fails
   Future<Response> getHomeworld(String path);
 
   /// Get a starship
@@ -37,7 +39,7 @@ abstract class StarWarsApi {
   ///
   /// Returns a [Response] object
   ///
-  /// Throws [StarWarsFailure] if the call fails
+  /// Throws [ApiFailure] if the call fails
   Future<Response> getStarship(String path);
 
   /// Get a vehicle
@@ -46,9 +48,16 @@ abstract class StarWarsApi {
   ///
   /// Returns a [VehicleDto] object
   ///
-  /// Throws [StarWarsFailure] if the call fails
+  /// Throws [ApiFailure] if the call fails
   Future<Response> getVehicle(String path);
 
+  /// Report a sighting
+  ///
+  /// [userId] is the id of a character
+  /// [dateTime] is the date and time of the sighting
+  /// [characterName] is the name of the character
+  ///
+  /// Throws [ApiFailure] if the call fails
   Future<void> reportSighting(
       int userId, DateTime dateTime, String characterName);
 }
@@ -60,15 +69,12 @@ class SwapiApi extends StarWarsApi {
   @override
   Future<Response> getPeople(int page) async {
     try {
-      if (page == -1) {
-        return await _httpClient.get('$kBaseUrl/people/');
-      }
       return await _httpClient
           .get('$kBaseUrl/people/', queryParameters: {'page': page});
     } on DioError catch (e) {
-      throw StarWarsFailure(e.message);
+      throw ApiFailure.fromDioErrorType(e);
     } catch (e) {
-      throw StarWarsFailure(e.toString());
+      throw ApiFailure(e.toString());
     }
   }
 
@@ -77,9 +83,9 @@ class SwapiApi extends StarWarsApi {
     try {
       return await _httpClient.get(path);
     } on DioError catch (e) {
-      throw StarWarsFailure(e.message);
+      throw ApiFailure.fromDioErrorType(e);
     } catch (e) {
-      throw StarWarsFailure(e.toString());
+      throw ApiFailure(e.toString());
     }
   }
 
@@ -88,9 +94,9 @@ class SwapiApi extends StarWarsApi {
     try {
       return await _httpClient.get(path);
     } on DioError catch (e) {
-      throw StarWarsFailure(e.message);
+      throw ApiFailure.fromDioErrorType(e);
     } catch (e) {
-      throw StarWarsFailure(e.toString());
+      throw ApiFailure(e.toString());
     }
   }
 
@@ -99,9 +105,9 @@ class SwapiApi extends StarWarsApi {
     try {
       return await _httpClient.get('$kBaseUrl/people/$id');
     } on DioError catch (e) {
-      throw StarWarsFailure(e.message);
+      throw ApiFailure.fromDioErrorType(e);
     } catch (e) {
-      throw StarWarsFailure(e.toString());
+      throw ApiFailure(e.toString());
     }
   }
 
@@ -110,9 +116,9 @@ class SwapiApi extends StarWarsApi {
     try {
       return await _httpClient.get(path);
     } on DioError catch (e) {
-      throw StarWarsFailure(e.message);
+      throw ApiFailure.fromDioErrorType(e);
     } catch (e) {
-      throw StarWarsFailure(e.toString());
+      throw ApiFailure(e.toString());
     }
   }
 
@@ -129,15 +135,9 @@ class SwapiApi extends StarWarsApi {
         },
       );
     } on DioError catch (e) {
-      throw StarWarsFailure(e.message);
+      throw ApiFailure.fromDioErrorType(e);
     } catch (e) {
-      throw StarWarsFailure(e.toString());
+      throw ApiFailure(e.toString());
     }
   }
-}
-
-class StarWarsFailure implements Exception {
-  final String message;
-
-  StarWarsFailure([this.message = 'Unknown error']);
 }

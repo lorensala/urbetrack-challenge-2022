@@ -32,44 +32,7 @@ class CustomTheme {
           backgroundColor: backgroundLight,
           elevation: 0,
         ),
-        textTheme: TextTheme(
-          headlineLarge: TextStyle(
-            color: onBackgroundLight,
-            fontSize: 24,
-            fontWeight: FontWeight.w600,
-            fontFamily: fontFamily,
-          ),
-          headlineMedium: TextStyle(
-            color: onBackgroundLight,
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            fontFamily: fontFamily,
-          ),
-          headlineSmall: TextStyle(
-            color: onBackgroundLight,
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            fontFamily: fontFamily,
-          ),
-          bodyLarge: TextStyle(
-            color: onBackgroundLight,
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-            fontFamily: fontFamily,
-          ),
-          bodyMedium: TextStyle(
-            color: onBackgroundLight,
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            fontFamily: fontFamily,
-          ),
-          bodySmall: TextStyle(
-            color: onBackgroundLight,
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-            fontFamily: fontFamily,
-          ),
-        ),
+        textTheme: _textTheme(onBackgroundLight),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedItemColor: primaryLight,
           backgroundColor: backgroundLight,
@@ -103,44 +66,7 @@ class CustomTheme {
             fontFamily: fontFamily,
           ),
         ),
-        textTheme: TextTheme(
-          headlineLarge: TextStyle(
-            color: onBackgroundDark,
-            fontSize: 24,
-            fontWeight: FontWeight.w600,
-            fontFamily: fontFamily,
-          ),
-          headlineMedium: TextStyle(
-            color: onBackgroundDark,
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            fontFamily: fontFamily,
-          ),
-          headlineSmall: TextStyle(
-            color: onBackgroundDark,
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            fontFamily: fontFamily,
-          ),
-          bodyLarge: TextStyle(
-            color: onBackgroundDark,
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-            fontFamily: fontFamily,
-          ),
-          bodyMedium: TextStyle(
-            color: onBackgroundDark,
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            fontFamily: fontFamily,
-          ),
-          bodySmall: TextStyle(
-            color: onBackgroundDark,
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-            fontFamily: fontFamily,
-          ),
-        ),
+        textTheme: _textTheme(onBackgroundDark),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedItemColor: primaryDark,
           backgroundColor: backgroundDark,
@@ -159,4 +85,45 @@ class CustomTheme {
             onSecondary: onSecondaryDark,
             error: errorDark));
   }
+}
+
+TextTheme _textTheme(Color color) {
+  return TextTheme(
+    headlineLarge: TextStyle(
+      color: color,
+      fontSize: 24,
+      fontWeight: FontWeight.w600,
+      fontFamily: fontFamily,
+    ),
+    headlineMedium: TextStyle(
+      color: color,
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+      fontFamily: fontFamily,
+    ),
+    headlineSmall: TextStyle(
+      color: color,
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      fontFamily: fontFamily,
+    ),
+    bodyLarge: TextStyle(
+      color: color,
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      fontFamily: fontFamily,
+    ),
+    bodyMedium: TextStyle(
+      color: color,
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      fontFamily: fontFamily,
+    ),
+    bodySmall: TextStyle(
+      color: color,
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      fontFamily: fontFamily,
+    ),
+  );
 }

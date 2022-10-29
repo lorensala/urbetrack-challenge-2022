@@ -25,7 +25,7 @@ class StarWarsState with _$StarWarsState {
   const factory StarWarsState({
     @Default([]) List<Character> characters,
     Character? selectedCharacter,
-    @Default(-1) int nextPage,
+    @Default(1) int nextPage,
     @Default(0) int count,
     @Default(StarWarsStatus.initial()) StarWarsStatus status,
     @Default(false) bool hasReachedMax,

@@ -16,10 +16,9 @@ class Character with _$Character {
     required int height,
     required int mass,
     required String name,
-    required String skinColor,
     required Homeworld homeworld,
-    required List<Starship> starship,
-    required List<Vehicle> vehicle,
+    required List<Starship> starships,
+    required List<Vehicle> vehicles,
   }) = _Character;
 
   bool get isEmpty => id == -1;
@@ -33,10 +32,9 @@ class Character with _$Character {
       height: -1,
       mass: -1,
       name: '',
-      skinColor: '',
       homeworld: Homeworld.empty(),
-      starship: [],
-      vehicle: []);
+      starships: [],
+      vehicles: []);
 }
 
 typedef CharacterId = int;

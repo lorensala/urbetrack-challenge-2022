@@ -19,5 +19,5 @@ Map<String, dynamic> _$$_PeopleDtoToJson(_$_PeopleDto instance) =>
     <String, dynamic>{
       'count': instance.count,
       'next': instance.next,
-      'results': instance.results,
+      'results': instance.results.map((e) => e.toJson()).toList(),
     };

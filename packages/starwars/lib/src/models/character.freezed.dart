@@ -24,10 +24,9 @@ mixin _$Character {
   int get height => throw _privateConstructorUsedError;
   int get mass => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get skinColor => throw _privateConstructorUsedError;
   Homeworld get homeworld => throw _privateConstructorUsedError;
-  List<Starship> get starship => throw _privateConstructorUsedError;
-  List<Vehicle> get vehicle => throw _privateConstructorUsedError;
+  List<Starship> get starships => throw _privateConstructorUsedError;
+  List<Vehicle> get vehicles => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CharacterCopyWith<Character> get copyWith =>
@@ -48,10 +47,9 @@ abstract class $CharacterCopyWith<$Res> {
       int height,
       int mass,
       String name,
-      String skinColor,
       Homeworld homeworld,
-      List<Starship> starship,
-      List<Vehicle> vehicle});
+      List<Starship> starships,
+      List<Vehicle> vehicles});
 
   $HomeworldCopyWith<$Res> get homeworld;
 }
@@ -77,10 +75,9 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
     Object? height = null,
     Object? mass = null,
     Object? name = null,
-    Object? skinColor = null,
     Object? homeworld = null,
-    Object? starship = null,
-    Object? vehicle = null,
+    Object? starships = null,
+    Object? vehicles = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -115,21 +112,17 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      skinColor: null == skinColor
-          ? _value.skinColor
-          : skinColor // ignore: cast_nullable_to_non_nullable
-              as String,
       homeworld: null == homeworld
           ? _value.homeworld
           : homeworld // ignore: cast_nullable_to_non_nullable
               as Homeworld,
-      starship: null == starship
-          ? _value.starship
-          : starship // ignore: cast_nullable_to_non_nullable
+      starships: null == starships
+          ? _value.starships
+          : starships // ignore: cast_nullable_to_non_nullable
               as List<Starship>,
-      vehicle: null == vehicle
-          ? _value.vehicle
-          : vehicle // ignore: cast_nullable_to_non_nullable
+      vehicles: null == vehicles
+          ? _value.vehicles
+          : vehicles // ignore: cast_nullable_to_non_nullable
               as List<Vehicle>,
     ) as $Val);
   }
@@ -159,10 +152,9 @@ abstract class _$$_CharacterCopyWith<$Res> implements $CharacterCopyWith<$Res> {
       int height,
       int mass,
       String name,
-      String skinColor,
       Homeworld homeworld,
-      List<Starship> starship,
-      List<Vehicle> vehicle});
+      List<Starship> starships,
+      List<Vehicle> vehicles});
 
   @override
   $HomeworldCopyWith<$Res> get homeworld;
@@ -187,10 +179,9 @@ class __$$_CharacterCopyWithImpl<$Res>
     Object? height = null,
     Object? mass = null,
     Object? name = null,
-    Object? skinColor = null,
     Object? homeworld = null,
-    Object? starship = null,
-    Object? vehicle = null,
+    Object? starships = null,
+    Object? vehicles = null,
   }) {
     return _then(_$_Character(
       id: null == id
@@ -225,21 +216,17 @@ class __$$_CharacterCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      skinColor: null == skinColor
-          ? _value.skinColor
-          : skinColor // ignore: cast_nullable_to_non_nullable
-              as String,
       homeworld: null == homeworld
           ? _value.homeworld
           : homeworld // ignore: cast_nullable_to_non_nullable
               as Homeworld,
-      starship: null == starship
-          ? _value._starship
-          : starship // ignore: cast_nullable_to_non_nullable
+      starships: null == starships
+          ? _value._starships
+          : starships // ignore: cast_nullable_to_non_nullable
               as List<Starship>,
-      vehicle: null == vehicle
-          ? _value._vehicle
-          : vehicle // ignore: cast_nullable_to_non_nullable
+      vehicles: null == vehicles
+          ? _value._vehicles
+          : vehicles // ignore: cast_nullable_to_non_nullable
               as List<Vehicle>,
     ));
   }
@@ -257,12 +244,11 @@ class _$_Character extends _Character {
       required this.height,
       required this.mass,
       required this.name,
-      required this.skinColor,
       required this.homeworld,
-      required final List<Starship> starship,
-      required final List<Vehicle> vehicle})
-      : _starship = starship,
-        _vehicle = vehicle,
+      required final List<Starship> starships,
+      required final List<Vehicle> vehicles})
+      : _starships = starships,
+        _vehicles = vehicles,
         super._();
 
   @override
@@ -282,26 +268,24 @@ class _$_Character extends _Character {
   @override
   final String name;
   @override
-  final String skinColor;
-  @override
   final Homeworld homeworld;
-  final List<Starship> _starship;
+  final List<Starship> _starships;
   @override
-  List<Starship> get starship {
+  List<Starship> get starships {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_starship);
+    return EqualUnmodifiableListView(_starships);
   }
 
-  final List<Vehicle> _vehicle;
+  final List<Vehicle> _vehicles;
   @override
-  List<Vehicle> get vehicle {
+  List<Vehicle> get vehicles {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_vehicle);
+    return EqualUnmodifiableListView(_vehicles);
   }
 
   @override
   String toString() {
-    return 'Character(id: $id, birthYear: $birthYear, eyeColor: $eyeColor, gender: $gender, hairColor: $hairColor, height: $height, mass: $mass, name: $name, skinColor: $skinColor, homeworld: $homeworld, starship: $starship, vehicle: $vehicle)';
+    return 'Character(id: $id, birthYear: $birthYear, eyeColor: $eyeColor, gender: $gender, hairColor: $hairColor, height: $height, mass: $mass, name: $name, homeworld: $homeworld, starships: $starships, vehicles: $vehicles)';
   }
 
   @override
@@ -320,12 +304,11 @@ class _$_Character extends _Character {
             (identical(other.height, height) || other.height == height) &&
             (identical(other.mass, mass) || other.mass == mass) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.skinColor, skinColor) ||
-                other.skinColor == skinColor) &&
             (identical(other.homeworld, homeworld) ||
                 other.homeworld == homeworld) &&
-            const DeepCollectionEquality().equals(other._starship, _starship) &&
-            const DeepCollectionEquality().equals(other._vehicle, _vehicle));
+            const DeepCollectionEquality()
+                .equals(other._starships, _starships) &&
+            const DeepCollectionEquality().equals(other._vehicles, _vehicles));
   }
 
   @override
@@ -339,10 +322,9 @@ class _$_Character extends _Character {
       height,
       mass,
       name,
-      skinColor,
       homeworld,
-      const DeepCollectionEquality().hash(_starship),
-      const DeepCollectionEquality().hash(_vehicle));
+      const DeepCollectionEquality().hash(_starships),
+      const DeepCollectionEquality().hash(_vehicles));
 
   @JsonKey(ignore: true)
   @override
@@ -361,10 +343,9 @@ abstract class _Character extends Character {
       required final int height,
       required final int mass,
       required final String name,
-      required final String skinColor,
       required final Homeworld homeworld,
-      required final List<Starship> starship,
-      required final List<Vehicle> vehicle}) = _$_Character;
+      required final List<Starship> starships,
+      required final List<Vehicle> vehicles}) = _$_Character;
   const _Character._() : super._();
 
   @override
@@ -384,13 +365,11 @@ abstract class _Character extends Character {
   @override
   String get name;
   @override
-  String get skinColor;
-  @override
   Homeworld get homeworld;
   @override
-  List<Starship> get starship;
+  List<Starship> get starships;
   @override
-  List<Vehicle> get vehicle;
+  List<Vehicle> get vehicles;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterCopyWith<_$_Character> get copyWith =>

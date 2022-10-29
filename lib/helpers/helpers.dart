@@ -12,12 +12,6 @@ const kIsDarkKey = '__isDark__';
 const kAppPadding = EdgeInsets.all(16);
 const kBorderRadius = BorderRadius.all(Radius.circular(8));
 
-class Failure {
-  final String message;
-
-  Failure([this.message = 'Something went wrong']);
-}
-
 String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
 
 extension SnackbarExtension on BuildContext {

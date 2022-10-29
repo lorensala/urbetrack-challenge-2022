@@ -4,6 +4,7 @@ export 'characters_list.dart';
 export 'connection_status.dart';
 export 'detail_container.dart';
 export 'error.dart';
+export 'idle_screen.dart';
 export 'main_scaffold.dart';
 export 'satelitte.dart';
 export 'snackbar_timer.dart';

@@ -2421,7 +2421,7 @@ class _$_StarwarsState implements _StarwarsState {
   const _$_StarwarsState(
       {final List<Character> characters = const [],
       this.selectedCharacter,
-      this.nextPage = -1,
+      this.nextPage = 1,
       this.count = 0,
       this.status = const StarWarsStatus.initial(),
       this.hasReachedMax = false})

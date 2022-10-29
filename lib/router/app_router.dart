@@ -25,5 +25,8 @@ part 'app_router.gr.dart';
     ]),
   ],
 )
-// extend the generated private router
+
+/// {@template app_router}
+/// The AppRouter that is responsible for handling navigation in the app.
+/// {@endtemplate}
 class AppRouter extends _$AppRouter {}
