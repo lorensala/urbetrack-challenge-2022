@@ -56,6 +56,25 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
       _GetPeople event, Emitter<StarWarsState> emit) async {
     if (state.hasReachedMax) return;
 
+    if (state.status == const StarWarsStatus.initial()) {
+      final res = await _repository.getPeople(state.nextPage);
+
+      return res.fold(
+        (failure) => emit(state.copyWith(
+          status: StarWarsStatus.error(failure.message),
+        )),
+        (people) => emit(
+          state.copyWith(
+            status: const StarWarsStatus.loaded(),
+            characters: [...state.characters, ...people.results],
+            nextPage: people.nextPage,
+            count: people.count,
+            hasReachedMax: people.nextPage == -1,
+          ),
+        ),
+      );
+    }
+
     emit(state.copyWith(status: const StarWarsStatus.loading()));
 
     final res = await _repository.getPeople(state.nextPage);

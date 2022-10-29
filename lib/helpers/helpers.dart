@@ -73,13 +73,8 @@ SnackBar buildErrorSnackBar(
 }
 
 String getStringFromList(List<String> list) {
-  if (list.isEmpty) {
-    return '';
-  }
+  if (list.isEmpty) return '--';
 
-  if (list.length == 1) {
-    return list.first;
-  }
-
-  return '${list.sublist(0, list.length - 1).join(', ')} and ${list.last}';
+  final listWithBullets = list.map((e) => '• $e').toList();
+  return listWithBullets.join('\n');
 }

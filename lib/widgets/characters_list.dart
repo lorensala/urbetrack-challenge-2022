@@ -27,7 +27,6 @@ class CharactersList extends HookWidget {
         }
       });
 
-      bloc.add(const StarWarsEvent.getPeople());
       return null;
     }, []);
 

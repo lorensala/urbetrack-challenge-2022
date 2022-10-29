@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:starwars/starwars.dart';
+import 'package:urbetrack_challenge/helpers/asset_provider.dart';
 
 import 'connection/cubit/connection_cubit.dart';
 import 'helpers/helpers.dart';
@@ -15,20 +17,32 @@ import 'theme/custom_theme.dart';
 import 'bloc_observer.dart';
 
 void main() async {
+  // Initialize HydratedBloc
   WidgetsFlutterBinding.ensureInitialized();
   final storage = await HydratedStorage.build(
       storageDirectory: await getTemporaryDirectory());
+
+  // Initialize bloc observer
   Bloc.observer = MyBlocObserver();
 
+  // Precache svgs
+  await _precacheSvgs();
+
+  // Load storage values
   final connection = storage.read(kConnectionKey);
   final isDark = storage.read(kIsDarkKey);
 
-  final dio = Dio();
+  // Initialize Dio
+  final dio = Dio()
+    ..options.connectTimeout = 5000
+    ..options.receiveTimeout = 5000;
+
+  // Initialize StarWarsRepository and StarWarsBloc
   final StarWarsApi starWarsApi = SwapiApi(dio);
   final StarWarsRepository starWarsRepository = StarWarsRepository(starWarsApi);
-
   final StarWarsBloc starWarsBloc = StarWarsBloc(starWarsRepository);
 
+  // Initialize app router
   final appRouter = AppRouter();
 
   HydratedBlocOverrides.runZoned(
@@ -69,4 +83,25 @@ class MyApp extends StatelessWidget {
       routeInformationParser: router.defaultRouteParser(),
     );
   }
+}
+
+Future<void> _precacheSvgs() async {
+  await Future.wait([
+    precachePicture(
+        ExactAssetPicture(
+            SvgPicture.svgStringDecoderBuilder, AssetProvider.characters),
+        null),
+    precachePicture(
+        ExactAssetPicture(
+            SvgPicture.svgStringDecoderBuilder, AssetProvider.connection),
+        null),
+    precachePicture(
+        ExactAssetPicture(
+            SvgPicture.svgStringDecoderBuilder, AssetProvider.sun),
+        null),
+    precachePicture(
+        ExactAssetPicture(
+            SvgPicture.svgStringDecoderBuilder, AssetProvider.moon),
+        null),
+  ]);
 }

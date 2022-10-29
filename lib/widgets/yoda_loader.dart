@@ -44,7 +44,7 @@ class Yoda extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller =
-        useAnimationController(duration: const Duration(milliseconds: 5000));
+        useAnimationController(duration: const Duration(milliseconds: 3000));
     final angle = math.Random().nextDouble() * 2 * math.pi;
     final asset = Theme.of(context).brightness == Brightness.dark
         ? AssetProvider.yodaDark
