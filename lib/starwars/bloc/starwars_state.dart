@@ -13,9 +13,9 @@ enum StarWarsStatus {
 @freezed
 class StarWarsState with _$StarWarsState {
   const factory StarWarsState({
-    @Default([]) List<CharacterResponse> characters,
-    CharacterDetails? characterDetails,
-    @Default('$kBaseUrl/people') String? next,
+    @Default([]) List<Character> characters,
+    Character? selectedCharacter,
+    @Default(0) int nextPage,
     @Default(0) int count,
     @Default(StarWarsStatus.initial) StarWarsStatus status,
     String? message,

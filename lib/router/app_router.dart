@@ -6,8 +6,6 @@ import '../starwars/view/character_details_screen.dart';
 import '../starwars/view/character_list_screen.dart';
 import '../widgets/main_scaffold.dart';
 
-import '../starwars/data/models/models.dart';
-
 part 'app_router.gr.dart';
 
 @AdaptiveAutoRouter(

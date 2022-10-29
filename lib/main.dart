@@ -2,14 +2,13 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:starwars/starwars.dart';
 
 import 'connection/cubit/connection_cubit.dart';
 import 'helpers/helpers.dart';
 import 'package:path_provider/path_provider.dart';
 import 'router/app_router.dart';
 import 'starwars/bloc/starwars_bloc.dart';
-import 'starwars/data/api/starwars_api.dart';
-import 'starwars/data/repository/starwars_repository.dart';
 import 'theme/cubit/theme_cubit.dart';
 import 'theme/custom_theme.dart';
 
@@ -25,7 +24,7 @@ void main() async {
   final isDark = storage.read(kIsDarkKey);
 
   final dio = Dio();
-  final StarWarsApi starWarsApi = SwapiApiClient(dio);
+  final StarWarsApi starWarsApi = SwapiApi(dio);
   final StarWarsRepository starWarsRepository = StarWarsRepository(starWarsApi);
 
   final StarWarsBloc starWarsBloc = StarWarsBloc(starWarsRepository);

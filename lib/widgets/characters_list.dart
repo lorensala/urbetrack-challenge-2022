@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:starwars/starwars.dart';
 import '../helpers/asset_provider.dart';
 import '../helpers/helpers.dart';
-import '../starwars/data/models/character.dart';
 
 import '../router/app_router.dart';
 import '../starwars/bloc/starwars_bloc.dart';
@@ -68,17 +68,17 @@ class CharactersList extends HookWidget {
 
 class CharacterListTile extends StatelessWidget {
   const CharacterListTile(
-    this.characterResponse, {
+    this.character, {
     Key? key,
   }) : super(key: key);
 
-  final CharacterResponse characterResponse;
+  final Character character;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => AutoRouter.of(context).push(
-        CharacterDetailsRoute(characterResponse: characterResponse),
+        CharacterDetailsRoute(character: character),
       ),
       child: Container(
         padding: kAppPadding,
@@ -93,12 +93,12 @@ class CharacterListTile extends StatelessWidget {
               children: [
                 FittedBox(
                   child: Text(
-                    characterResponse.name,
+                    character.name,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 const SizedBox(height: 8),
-                Text(capitalize(characterResponse.gender),
+                Text(capitalize(character.gender),
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           color: Theme.of(context).colorScheme.onSecondary,
                         )),

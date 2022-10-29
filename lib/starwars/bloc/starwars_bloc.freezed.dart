@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$StarWarsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getPeople,
-    required TResult Function(CharacterResponse characterResponse) getCharacter,
+    required TResult Function(int page) getPeople,
+    required TResult Function(int id) getCharacter,
     required TResult Function(
             int userId, DateTime dateTime, String characterName)
         reportSighting,
@@ -27,16 +27,16 @@ mixin _$StarWarsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getPeople,
-    TResult? Function(CharacterResponse characterResponse)? getCharacter,
+    TResult? Function(int page)? getPeople,
+    TResult? Function(int id)? getCharacter,
     TResult? Function(int userId, DateTime dateTime, String characterName)?
         reportSighting,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getPeople,
-    TResult Function(CharacterResponse characterResponse)? getCharacter,
+    TResult Function(int page)? getPeople,
+    TResult Function(int id)? getCharacter,
     TResult Function(int userId, DateTime dateTime, String characterName)?
         reportSighting,
     required TResult orElse(),
@@ -89,6 +89,8 @@ abstract class _$$_GetPeopleCopyWith<$Res> {
   factory _$$_GetPeopleCopyWith(
           _$_GetPeople value, $Res Function(_$_GetPeople) then) =
       __$$_GetPeopleCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int page});
 }
 
 /// @nodoc
@@ -98,61 +100,86 @@ class __$$_GetPeopleCopyWithImpl<$Res>
   __$$_GetPeopleCopyWithImpl(
       _$_GetPeople _value, $Res Function(_$_GetPeople) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? page = null,
+  }) {
+    return _then(_$_GetPeople(
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_GetPeople implements _GetPeople {
-  const _$_GetPeople();
+  const _$_GetPeople({this.page = -1});
+
+  @override
+  @JsonKey()
+  final int page;
 
   @override
   String toString() {
-    return 'StarWarsEvent.getPeople()';
+    return 'StarWarsEvent.getPeople(page: $page)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetPeople);
+        (other.runtimeType == runtimeType &&
+            other is _$_GetPeople &&
+            (identical(other.page, page) || other.page == page));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, page);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetPeopleCopyWith<_$_GetPeople> get copyWith =>
+      __$$_GetPeopleCopyWithImpl<_$_GetPeople>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getPeople,
-    required TResult Function(CharacterResponse characterResponse) getCharacter,
+    required TResult Function(int page) getPeople,
+    required TResult Function(int id) getCharacter,
     required TResult Function(
             int userId, DateTime dateTime, String characterName)
         reportSighting,
   }) {
-    return getPeople();
+    return getPeople(page);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getPeople,
-    TResult? Function(CharacterResponse characterResponse)? getCharacter,
+    TResult? Function(int page)? getPeople,
+    TResult? Function(int id)? getCharacter,
     TResult? Function(int userId, DateTime dateTime, String characterName)?
         reportSighting,
   }) {
-    return getPeople?.call();
+    return getPeople?.call(page);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getPeople,
-    TResult Function(CharacterResponse characterResponse)? getCharacter,
+    TResult Function(int page)? getPeople,
+    TResult Function(int id)? getCharacter,
     TResult Function(int userId, DateTime dateTime, String characterName)?
         reportSighting,
     required TResult orElse(),
   }) {
     if (getPeople != null) {
-      return getPeople();
+      return getPeople(page);
     }
     return orElse();
   }
@@ -193,7 +220,12 @@ class _$_GetPeople implements _GetPeople {
 }
 
 abstract class _GetPeople implements StarWarsEvent {
-  const factory _GetPeople() = _$_GetPeople;
+  const factory _GetPeople({final int page}) = _$_GetPeople;
+
+  int get page;
+  @JsonKey(ignore: true)
+  _$$_GetPeopleCopyWith<_$_GetPeople> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -202,9 +234,7 @@ abstract class _$$_GetCharacterCopyWith<$Res> {
           _$_GetCharacter value, $Res Function(_$_GetCharacter) then) =
       __$$_GetCharacterCopyWithImpl<$Res>;
   @useResult
-  $Res call({CharacterResponse characterResponse});
-
-  $CharacterResponseCopyWith<$Res> get characterResponse;
+  $Res call({int id});
 }
 
 /// @nodoc
@@ -218,36 +248,28 @@ class __$$_GetCharacterCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? characterResponse = null,
+    Object? id = null,
   }) {
     return _then(_$_GetCharacter(
-      characterResponse: null == characterResponse
-          ? _value.characterResponse
-          : characterResponse // ignore: cast_nullable_to_non_nullable
-              as CharacterResponse,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CharacterResponseCopyWith<$Res> get characterResponse {
-    return $CharacterResponseCopyWith<$Res>(_value.characterResponse, (value) {
-      return _then(_value.copyWith(characterResponse: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$_GetCharacter implements _GetCharacter {
-  const _$_GetCharacter({required this.characterResponse});
+  const _$_GetCharacter({required this.id});
 
   @override
-  final CharacterResponse characterResponse;
+  final int id;
 
   @override
   String toString() {
-    return 'StarWarsEvent.getCharacter(characterResponse: $characterResponse)';
+    return 'StarWarsEvent.getCharacter(id: $id)';
   }
 
   @override
@@ -255,12 +277,11 @@ class _$_GetCharacter implements _GetCharacter {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GetCharacter &&
-            (identical(other.characterResponse, characterResponse) ||
-                other.characterResponse == characterResponse));
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, characterResponse);
+  int get hashCode => Object.hash(runtimeType, id);
 
   @JsonKey(ignore: true)
   @override
@@ -271,37 +292,37 @@ class _$_GetCharacter implements _GetCharacter {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getPeople,
-    required TResult Function(CharacterResponse characterResponse) getCharacter,
+    required TResult Function(int page) getPeople,
+    required TResult Function(int id) getCharacter,
     required TResult Function(
             int userId, DateTime dateTime, String characterName)
         reportSighting,
   }) {
-    return getCharacter(characterResponse);
+    return getCharacter(id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getPeople,
-    TResult? Function(CharacterResponse characterResponse)? getCharacter,
+    TResult? Function(int page)? getPeople,
+    TResult? Function(int id)? getCharacter,
     TResult? Function(int userId, DateTime dateTime, String characterName)?
         reportSighting,
   }) {
-    return getCharacter?.call(characterResponse);
+    return getCharacter?.call(id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getPeople,
-    TResult Function(CharacterResponse characterResponse)? getCharacter,
+    TResult Function(int page)? getPeople,
+    TResult Function(int id)? getCharacter,
     TResult Function(int userId, DateTime dateTime, String characterName)?
         reportSighting,
     required TResult orElse(),
   }) {
     if (getCharacter != null) {
-      return getCharacter(characterResponse);
+      return getCharacter(id);
     }
     return orElse();
   }
@@ -342,10 +363,9 @@ class _$_GetCharacter implements _GetCharacter {
 }
 
 abstract class _GetCharacter implements StarWarsEvent {
-  const factory _GetCharacter(
-      {required final CharacterResponse characterResponse}) = _$_GetCharacter;
+  const factory _GetCharacter({required final int id}) = _$_GetCharacter;
 
-  CharacterResponse get characterResponse;
+  int get id;
   @JsonKey(ignore: true)
   _$$_GetCharacterCopyWith<_$_GetCharacter> get copyWith =>
       throw _privateConstructorUsedError;
@@ -436,8 +456,8 @@ class _$_ReportSighting implements _ReportSighting {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getPeople,
-    required TResult Function(CharacterResponse characterResponse) getCharacter,
+    required TResult Function(int page) getPeople,
+    required TResult Function(int id) getCharacter,
     required TResult Function(
             int userId, DateTime dateTime, String characterName)
         reportSighting,
@@ -448,8 +468,8 @@ class _$_ReportSighting implements _ReportSighting {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getPeople,
-    TResult? Function(CharacterResponse characterResponse)? getCharacter,
+    TResult? Function(int page)? getPeople,
+    TResult? Function(int id)? getCharacter,
     TResult? Function(int userId, DateTime dateTime, String characterName)?
         reportSighting,
   }) {
@@ -459,8 +479,8 @@ class _$_ReportSighting implements _ReportSighting {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getPeople,
-    TResult Function(CharacterResponse characterResponse)? getCharacter,
+    TResult Function(int page)? getPeople,
+    TResult Function(int id)? getCharacter,
     TResult Function(int userId, DateTime dateTime, String characterName)?
         reportSighting,
     required TResult orElse(),
@@ -522,9 +542,9 @@ abstract class _ReportSighting implements StarWarsEvent {
 
 /// @nodoc
 mixin _$StarWarsState {
-  List<CharacterResponse> get characters => throw _privateConstructorUsedError;
-  CharacterDetails? get characterDetails => throw _privateConstructorUsedError;
-  String? get next => throw _privateConstructorUsedError;
+  List<Character> get characters => throw _privateConstructorUsedError;
+  Character? get selectedCharacter => throw _privateConstructorUsedError;
+  int get nextPage => throw _privateConstructorUsedError;
   int get count => throw _privateConstructorUsedError;
   StarWarsStatus get status => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
@@ -542,9 +562,9 @@ abstract class $StarWarsStateCopyWith<$Res> {
       _$StarWarsStateCopyWithImpl<$Res, StarWarsState>;
   @useResult
   $Res call(
-      {List<CharacterResponse> characters,
-      CharacterDetails? characterDetails,
-      String? next,
+      {List<Character> characters,
+      Character? selectedCharacter,
+      int nextPage,
       int count,
       StarWarsStatus status,
       String? message,
@@ -565,8 +585,8 @@ class _$StarWarsStateCopyWithImpl<$Res, $Val extends StarWarsState>
   @override
   $Res call({
     Object? characters = null,
-    Object? characterDetails = freezed,
-    Object? next = freezed,
+    Object? selectedCharacter = null,
+    Object? nextPage = null,
     Object? count = null,
     Object? status = null,
     Object? message = freezed,
@@ -576,15 +596,15 @@ class _$StarWarsStateCopyWithImpl<$Res, $Val extends StarWarsState>
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as List<CharacterResponse>,
-      characterDetails: freezed == characterDetails
-          ? _value.characterDetails
-          : characterDetails // ignore: cast_nullable_to_non_nullable
-              as CharacterDetails?,
-      next: freezed == next
-          ? _value.next
-          : next // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as List<Character>,
+      selectedCharacter: null == selectedCharacter
+          ? _value.selectedCharacter
+          : selectedCharacter // ignore: cast_nullable_to_non_nullable
+              as Character?,
+      nextPage: null == nextPage
+          ? _value.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as int,
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -614,9 +634,9 @@ abstract class _$$_StarwarsStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<CharacterResponse> characters,
-      CharacterDetails? characterDetails,
-      String? next,
+      {List<Character> characters,
+      Character? selectedCharacter,
+      int nextPage,
       int count,
       StarWarsStatus status,
       String? message,
@@ -635,8 +655,8 @@ class __$$_StarwarsStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? characters = null,
-    Object? characterDetails = freezed,
-    Object? next = freezed,
+    Object? selectedCharacter = null,
+    Object? nextPage = null,
     Object? count = null,
     Object? status = null,
     Object? message = freezed,
@@ -646,15 +666,15 @@ class __$$_StarwarsStateCopyWithImpl<$Res>
       characters: null == characters
           ? _value._characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as List<CharacterResponse>,
-      characterDetails: freezed == characterDetails
-          ? _value.characterDetails
-          : characterDetails // ignore: cast_nullable_to_non_nullable
-              as CharacterDetails?,
-      next: freezed == next
-          ? _value.next
-          : next // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as List<Character>,
+      selectedCharacter: null == selectedCharacter
+          ? _value.selectedCharacter
+          : selectedCharacter // ignore: cast_nullable_to_non_nullable
+              as Character?,
+      nextPage: null == nextPage
+          ? _value.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as int,
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -679,28 +699,28 @@ class __$$_StarwarsStateCopyWithImpl<$Res>
 
 class _$_StarwarsState implements _StarwarsState {
   const _$_StarwarsState(
-      {final List<CharacterResponse> characters = const [],
-      this.characterDetails,
-      this.next = '$kBaseUrl/people',
+      {final List<Character> characters = const [],
+      this.selectedCharacter,
+      this.nextPage = 0,
       this.count = 0,
       this.status = StarWarsStatus.initial,
       this.message,
       this.hasReachedMax = false})
       : _characters = characters;
 
-  final List<CharacterResponse> _characters;
+  final List<Character> _characters;
   @override
   @JsonKey()
-  List<CharacterResponse> get characters {
+  List<Character> get characters {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_characters);
   }
 
   @override
-  final CharacterDetails? characterDetails;
+  final Character? selectedCharacter;
   @override
   @JsonKey()
-  final String? next;
+  final int nextPage;
   @override
   @JsonKey()
   final int count;
@@ -715,7 +735,7 @@ class _$_StarwarsState implements _StarwarsState {
 
   @override
   String toString() {
-    return 'StarWarsState(characters: $characters, characterDetails: $characterDetails, next: $next, count: $count, status: $status, message: $message, hasReachedMax: $hasReachedMax)';
+    return 'StarWarsState(characters: $characters, selectedCharacter: $selectedCharacter, nextPage: $nextPage, count: $count, status: $status, message: $message, hasReachedMax: $hasReachedMax)';
   }
 
   @override
@@ -725,9 +745,10 @@ class _$_StarwarsState implements _StarwarsState {
             other is _$_StarwarsState &&
             const DeepCollectionEquality()
                 .equals(other._characters, _characters) &&
-            (identical(other.characterDetails, characterDetails) ||
-                other.characterDetails == characterDetails) &&
-            (identical(other.next, next) || other.next == next) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedCharacter, selectedCharacter) &&
+            (identical(other.nextPage, nextPage) ||
+                other.nextPage == nextPage) &&
             (identical(other.count, count) || other.count == count) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
@@ -739,8 +760,8 @@ class _$_StarwarsState implements _StarwarsState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_characters),
-      characterDetails,
-      next,
+      const DeepCollectionEquality().hash(selectedCharacter),
+      nextPage,
       count,
       status,
       message,
@@ -755,20 +776,20 @@ class _$_StarwarsState implements _StarwarsState {
 
 abstract class _StarwarsState implements StarWarsState {
   const factory _StarwarsState(
-      {final List<CharacterResponse> characters,
-      final CharacterDetails? characterDetails,
-      final String? next,
+      {final List<Character> characters,
+      final Character? selectedCharacter,
+      final int nextPage,
       final int count,
       final StarWarsStatus status,
       final String? message,
       final bool hasReachedMax}) = _$_StarwarsState;
 
   @override
-  List<CharacterResponse> get characters;
+  List<Character> get characters;
   @override
-  CharacterDetails? get characterDetails;
+  Character? get selectedCharacter;
   @override
-  String? get next;
+  int get nextPage;
   @override
   int get count;
   @override

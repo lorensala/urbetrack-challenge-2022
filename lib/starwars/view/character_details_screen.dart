@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:urbetrack_challenge/starwars/models/character_details.dart';
+import 'package:starwars/starwars.dart';
+
 import '../../helpers/helpers.dart';
-import '../data/models/character.dart';
 
 import '../../connection/cubit/connection_cubit.dart';
 import '../../widgets/widgets.dart';
 import '../bloc/starwars_bloc.dart';
 
 class CharacterDetailsScreen extends HookWidget {
-  const CharacterDetailsScreen({super.key, required this.characterResponse});
+  const CharacterDetailsScreen({super.key, required this.character});
 
-  final CharacterResponse characterResponse;
+  final Character character;
 
   @override
   Widget build(BuildContext context) {
     useEffect(() {
-      context.read<StarWarsBloc>().add(
-          StarWarsEvent.getCharacter(characterResponse: characterResponse));
+      context
+          .read<StarWarsBloc>()
+          .add(StarWarsEvent.getCharacter(id: character.id));
       return null;
     }, []);
 
@@ -40,11 +41,11 @@ class CharacterDetailsScreen extends HookWidget {
             case StarWarsStatus.error:
               return const Center(child: Text('Something went wrong'));
             default:
-              if (state.characterDetails == null) {
+              if (state.selectedCharacter == null) {
                 return const SizedBox.shrink();
               }
 
-              final character = state.characterDetails!;
+              final character = state.selectedCharacter!;
 
               return SingleChildScrollView(
                 child: Padding(
@@ -87,9 +88,9 @@ class _ReportButton extends StatelessWidget {
 
                     context.read<StarWarsBloc>().add(
                         StarWarsEvent.reportSighting(
-                            userId: state.characterDetails!.id,
+                            userId: state.selectedCharacter!.id,
                             dateTime: DateTime.now(),
-                            characterName: state.characterDetails!.name));
+                            characterName: state.selectedCharacter!.name));
                   },
                   enabled: conn,
                 );
@@ -114,7 +115,7 @@ class _CharacterDetails extends StatelessWidget {
     required this.character,
   }) : super(key: key);
 
-  final CharacterDetails character;
+  final Character character;
 
   @override
   Widget build(BuildContext context) {
@@ -123,24 +124,22 @@ class _CharacterDetails extends StatelessWidget {
         _DetailLabel(label: 'Name', value: character.name),
         _DetailLabel(
           label: 'Height',
-          value: character.height,
+          value: character.height.toString(),
           suffix: const Text('cm'),
         ),
         _DetailLabel(
           label: 'Mass',
-          value: character.mass,
+          value: character.mass.toString(),
           suffix: const Text('kg'),
         ),
         _DetailLabel(label: 'Hair Color', value: character.hairColor),
-        _DetailLabel(label: 'Homeworld', value: character.planetDetails.name),
+        _DetailLabel(label: 'Homeworld', value: character.homeworld.name),
         _DetailLabel(
             label: 'Vehicules',
-            value:
-                '${character.vehicleDetails.map((vehicule) => vehicule.name)}'),
+            value: '${character.vehicle.map((vehicule) => vehicule.name)}'),
         _DetailLabel(
             label: 'Starships',
-            value:
-                '${character.starshipDetails.map((starship) => starship.name)}'),
+            value: '${character.starship.map((starship) => starship.name)}'),
       ],
     );
   }

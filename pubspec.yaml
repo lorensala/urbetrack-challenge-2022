@@ -48,6 +48,8 @@ dependencies:
   lottie: ^1.4.3
   path_provider: ^2.0.11
   stream_transform: ^2.0.1
+  starwars:
+    path: ./packages/starwars
 
 dev_dependencies:
   auto_route_generator: ^5.0.2

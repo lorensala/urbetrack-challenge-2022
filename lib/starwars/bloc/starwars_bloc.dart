@@ -2,13 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../data/repository/starwars_repository.dart';
+import 'package:starwars/starwars.dart';
 import 'package:stream_transform/stream_transform.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
-import '../models/character_details.dart';
-
-import '../../helpers/helpers.dart';
-import '../data/models/models.dart';
 
 part 'starwars_event.dart';
 part 'starwars_state.dart';
@@ -36,21 +32,20 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
     _GetCharacter event,
     Emitter<StarWarsState> emit,
   ) async {
-    if (state.characterDetails?.id ==
-        getIdFromUrl(event.characterResponse.url)) {
+    if (state.selectedCharacter?.id == event.id) {
       return;
     }
+
     emit(state.copyWith(status: StarWarsStatus.loading));
 
-    final result =
-        await _repository.getCharacterDetails(event.characterResponse);
+    final result = await _repository.getCharacter(event.id);
 
     result.fold(
       (failure) => emit(state.copyWith(status: StarWarsStatus.error)),
-      (characterDetails) => emit(
+      (character) => emit(
         state.copyWith(
           status: StarWarsStatus.loaded,
-          characterDetails: characterDetails,
+          selectedCharacter: character,
         ),
       ),
     );
@@ -62,7 +57,7 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
 
     emit(state.copyWith(status: StarWarsStatus.loading));
 
-    final res = await _repository.getPeople(state.next!);
+    final res = await _repository.getPeople(event.page);
 
     res.fold(
       (failure) => emit(state.copyWith(
@@ -72,10 +67,10 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
       (people) => emit(
         state.copyWith(
           status: StarWarsStatus.loaded,
-          characters: [...state.characters, ...people.results ?? []],
-          next: people.next,
-          count: people.count!,
-          hasReachedMax: people.next == null,
+          characters: [...state.characters, ...people.results],
+          nextPage: people.nextPage,
+          count: people.count,
+          hasReachedMax: people.nextPage == -1,
         ),
       ),
     );

@@ -47,7 +47,7 @@ class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: CharacterDetailsScreen(
           key: args.key,
-          characterResponse: args.characterResponse,
+          character: args.character,
         ),
       );
     },
@@ -141,13 +141,13 @@ class CharactersListRoute extends PageRouteInfo<void> {
 class CharacterDetailsRoute extends PageRouteInfo<CharacterDetailsRouteArgs> {
   CharacterDetailsRoute({
     Key? key,
-    required CharacterResponse characterResponse,
+    required dynamic character,
   }) : super(
           CharacterDetailsRoute.name,
           path: 'character-details-screen',
           args: CharacterDetailsRouteArgs(
             key: key,
-            characterResponse: characterResponse,
+            character: character,
           ),
         );
 
@@ -157,15 +157,15 @@ class CharacterDetailsRoute extends PageRouteInfo<CharacterDetailsRouteArgs> {
 class CharacterDetailsRouteArgs {
   const CharacterDetailsRouteArgs({
     this.key,
-    required this.characterResponse,
+    required this.character,
   });
 
   final Key? key;
 
-  final CharacterResponse characterResponse;
+  final dynamic character;
 
   @override
   String toString() {
-    return 'CharacterDetailsRouteArgs{key: $key, characterResponse: $characterResponse}';
+    return 'CharacterDetailsRouteArgs{key: $key, character: $character}';
   }
 }
