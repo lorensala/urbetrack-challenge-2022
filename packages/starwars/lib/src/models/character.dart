@@ -22,6 +22,8 @@ class Character with _$Character {
     required List<Vehicle> vehicle,
   }) = _Character;
 
+  bool get isEmpty => id == -1;
+
   factory Character.empty() => Character(
       id: -1,
       birthYear: '',
@@ -33,8 +35,8 @@ class Character with _$Character {
       name: '',
       skinColor: '',
       homeworld: Homeworld.empty(),
-      starship: [] as List<Starship>,
-      vehicle: [] as List<Vehicle>);
+      starship: [],
+      vehicle: []);
 }
 
 typedef CharacterId = int;

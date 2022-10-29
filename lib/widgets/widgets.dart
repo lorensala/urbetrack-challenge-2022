@@ -1,4 +1,5 @@
 export 'button.dart';
+export 'character_list_tile.dart';
 export 'characters_list.dart';
 export 'connection_status.dart';
 export 'detail_container.dart';

@@ -36,16 +36,16 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
       return;
     }
 
-    emit(state.copyWith(status: const StarWarsStatus.loading()));
+    emit(state.copyWith(status: const StarWarsStatus.loadingCharacter()));
 
     final result = await _repository.getCharacter(event.id);
 
     result.fold(
-      (failure) =>
-          emit(state.copyWith(status: StarWarsStatus.error(failure.message))),
+      (failure) => emit(state.copyWith(
+          status: StarWarsStatus.characterError(failure.message))),
       (character) => emit(
         state.copyWith(
-          status: const StarWarsStatus.loaded(),
+          status: const StarWarsStatus.characterLoaded(),
           selectedCharacter: character,
         ),
       ),

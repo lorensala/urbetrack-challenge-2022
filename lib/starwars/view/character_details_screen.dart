@@ -20,6 +20,7 @@ class CharacterDetailsScreen extends HookWidget {
       context
           .read<StarWarsBloc>()
           .add(StarWarsEvent.getCharacter(id: character.id));
+
       return null;
     }, []);
 
@@ -35,8 +36,8 @@ class CharacterDetailsScreen extends HookWidget {
         },
         builder: (context, state) {
           return state.status.maybeWhen(
-              loading: () => const YodaLoader(),
-              error: (message) =>
+              loadingCharacter: () => const YodaLoader(),
+              characterError: (message) =>
                   const Center(child: Text('Something went wrong')),
               orElse: () {
                 if (state.selectedCharacter == null) {
@@ -79,11 +80,10 @@ class _ReportButton extends StatelessWidget {
               builder: (context, state) {
                 return Button(
                   label: 'Report sighting',
-                  isLoading: state.status.isLoading,
+                  isLoading: state.status.isReportInProgress,
                   onPressed: () {
                     final isConnected = context.read<ConnectionCubit>().state;
                     if (!isConnected) return;
-
                     context.read<StarWarsBloc>().add(
                         StarWarsEvent.reportSighting(
                             userId: state.selectedCharacter!.id,

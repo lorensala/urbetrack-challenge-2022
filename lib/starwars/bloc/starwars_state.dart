@@ -9,10 +9,15 @@ class StarWarsStatus with _$StarWarsStatus {
   const factory StarWarsStatus.loaded() = _Loaded;
   const factory StarWarsStatus.error(String message) = _Error;
   const factory StarWarsStatus.reportSuccess() = _Reported;
+  const factory StarWarsStatus.loadingCharacter() = _LoadingCharacter;
+  const factory StarWarsStatus.characterLoaded() = _CharacterLoaded;
+  const factory StarWarsStatus.characterError(String message) = _CharacterError;
   const factory StarWarsStatus.reportFailed(String message) = _ReportFailed;
   const factory StarWarsStatus.reportInProgress() = _ReportInProgress;
 
-  bool get isLoading => this is _Loading || this is _ReportInProgress;
+  bool get isLoading => this is _Loading;
+  bool get isLoadingCharacter => this is _LoadingCharacter;
+  bool get isReportInProgress => this is _ReportInProgress;
 }
 
 @freezed

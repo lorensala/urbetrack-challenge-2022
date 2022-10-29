@@ -549,6 +549,9 @@ mixin _$StarWarsStatus {
     required TResult Function() loaded,
     required TResult Function(String message) error,
     required TResult Function() reportSuccess,
+    required TResult Function() loadingCharacter,
+    required TResult Function() characterLoaded,
+    required TResult Function(String message) characterError,
     required TResult Function(String message) reportFailed,
     required TResult Function() reportInProgress,
   }) =>
@@ -560,6 +563,9 @@ mixin _$StarWarsStatus {
     TResult? Function()? loaded,
     TResult? Function(String message)? error,
     TResult? Function()? reportSuccess,
+    TResult? Function()? loadingCharacter,
+    TResult? Function()? characterLoaded,
+    TResult? Function(String message)? characterError,
     TResult? Function(String message)? reportFailed,
     TResult? Function()? reportInProgress,
   }) =>
@@ -571,6 +577,9 @@ mixin _$StarWarsStatus {
     TResult Function()? loaded,
     TResult Function(String message)? error,
     TResult Function()? reportSuccess,
+    TResult Function()? loadingCharacter,
+    TResult Function()? characterLoaded,
+    TResult Function(String message)? characterError,
     TResult Function(String message)? reportFailed,
     TResult Function()? reportInProgress,
     required TResult orElse(),
@@ -583,6 +592,9 @@ mixin _$StarWarsStatus {
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
     required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_LoadingCharacter value) loadingCharacter,
+    required TResult Function(_CharacterLoaded value) characterLoaded,
+    required TResult Function(_CharacterError value) characterError,
     required TResult Function(_ReportFailed value) reportFailed,
     required TResult Function(_ReportInProgress value) reportInProgress,
   }) =>
@@ -594,6 +606,9 @@ mixin _$StarWarsStatus {
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
     TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_LoadingCharacter value)? loadingCharacter,
+    TResult? Function(_CharacterLoaded value)? characterLoaded,
+    TResult? Function(_CharacterError value)? characterError,
     TResult? Function(_ReportFailed value)? reportFailed,
     TResult? Function(_ReportInProgress value)? reportInProgress,
   }) =>
@@ -605,6 +620,9 @@ mixin _$StarWarsStatus {
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
     TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_LoadingCharacter value)? loadingCharacter,
+    TResult Function(_CharacterLoaded value)? characterLoaded,
+    TResult Function(_CharacterError value)? characterError,
     TResult Function(_ReportFailed value)? reportFailed,
     TResult Function(_ReportInProgress value)? reportInProgress,
     required TResult orElse(),
@@ -672,6 +690,9 @@ class _$_Initial extends _Initial {
     required TResult Function() loaded,
     required TResult Function(String message) error,
     required TResult Function() reportSuccess,
+    required TResult Function() loadingCharacter,
+    required TResult Function() characterLoaded,
+    required TResult Function(String message) characterError,
     required TResult Function(String message) reportFailed,
     required TResult Function() reportInProgress,
   }) {
@@ -686,6 +707,9 @@ class _$_Initial extends _Initial {
     TResult? Function()? loaded,
     TResult? Function(String message)? error,
     TResult? Function()? reportSuccess,
+    TResult? Function()? loadingCharacter,
+    TResult? Function()? characterLoaded,
+    TResult? Function(String message)? characterError,
     TResult? Function(String message)? reportFailed,
     TResult? Function()? reportInProgress,
   }) {
@@ -700,6 +724,9 @@ class _$_Initial extends _Initial {
     TResult Function()? loaded,
     TResult Function(String message)? error,
     TResult Function()? reportSuccess,
+    TResult Function()? loadingCharacter,
+    TResult Function()? characterLoaded,
+    TResult Function(String message)? characterError,
     TResult Function(String message)? reportFailed,
     TResult Function()? reportInProgress,
     required TResult orElse(),
@@ -718,6 +745,9 @@ class _$_Initial extends _Initial {
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
     required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_LoadingCharacter value) loadingCharacter,
+    required TResult Function(_CharacterLoaded value) characterLoaded,
+    required TResult Function(_CharacterError value) characterError,
     required TResult Function(_ReportFailed value) reportFailed,
     required TResult Function(_ReportInProgress value) reportInProgress,
   }) {
@@ -732,6 +762,9 @@ class _$_Initial extends _Initial {
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
     TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_LoadingCharacter value)? loadingCharacter,
+    TResult? Function(_CharacterLoaded value)? characterLoaded,
+    TResult? Function(_CharacterError value)? characterError,
     TResult? Function(_ReportFailed value)? reportFailed,
     TResult? Function(_ReportInProgress value)? reportInProgress,
   }) {
@@ -746,6 +779,9 @@ class _$_Initial extends _Initial {
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
     TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_LoadingCharacter value)? loadingCharacter,
+    TResult Function(_CharacterLoaded value)? characterLoaded,
+    TResult Function(_CharacterError value)? characterError,
     TResult Function(_ReportFailed value)? reportFailed,
     TResult Function(_ReportInProgress value)? reportInProgress,
     required TResult orElse(),
@@ -804,6 +840,9 @@ class _$_Loading extends _Loading {
     required TResult Function() loaded,
     required TResult Function(String message) error,
     required TResult Function() reportSuccess,
+    required TResult Function() loadingCharacter,
+    required TResult Function() characterLoaded,
+    required TResult Function(String message) characterError,
     required TResult Function(String message) reportFailed,
     required TResult Function() reportInProgress,
   }) {
@@ -818,6 +857,9 @@ class _$_Loading extends _Loading {
     TResult? Function()? loaded,
     TResult? Function(String message)? error,
     TResult? Function()? reportSuccess,
+    TResult? Function()? loadingCharacter,
+    TResult? Function()? characterLoaded,
+    TResult? Function(String message)? characterError,
     TResult? Function(String message)? reportFailed,
     TResult? Function()? reportInProgress,
   }) {
@@ -832,6 +874,9 @@ class _$_Loading extends _Loading {
     TResult Function()? loaded,
     TResult Function(String message)? error,
     TResult Function()? reportSuccess,
+    TResult Function()? loadingCharacter,
+    TResult Function()? characterLoaded,
+    TResult Function(String message)? characterError,
     TResult Function(String message)? reportFailed,
     TResult Function()? reportInProgress,
     required TResult orElse(),
@@ -850,6 +895,9 @@ class _$_Loading extends _Loading {
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
     required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_LoadingCharacter value) loadingCharacter,
+    required TResult Function(_CharacterLoaded value) characterLoaded,
+    required TResult Function(_CharacterError value) characterError,
     required TResult Function(_ReportFailed value) reportFailed,
     required TResult Function(_ReportInProgress value) reportInProgress,
   }) {
@@ -864,6 +912,9 @@ class _$_Loading extends _Loading {
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
     TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_LoadingCharacter value)? loadingCharacter,
+    TResult? Function(_CharacterLoaded value)? characterLoaded,
+    TResult? Function(_CharacterError value)? characterError,
     TResult? Function(_ReportFailed value)? reportFailed,
     TResult? Function(_ReportInProgress value)? reportInProgress,
   }) {
@@ -878,6 +929,9 @@ class _$_Loading extends _Loading {
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
     TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_LoadingCharacter value)? loadingCharacter,
+    TResult Function(_CharacterLoaded value)? characterLoaded,
+    TResult Function(_CharacterError value)? characterError,
     TResult Function(_ReportFailed value)? reportFailed,
     TResult Function(_ReportInProgress value)? reportInProgress,
     required TResult orElse(),
@@ -935,6 +989,9 @@ class _$_Loaded extends _Loaded {
     required TResult Function() loaded,
     required TResult Function(String message) error,
     required TResult Function() reportSuccess,
+    required TResult Function() loadingCharacter,
+    required TResult Function() characterLoaded,
+    required TResult Function(String message) characterError,
     required TResult Function(String message) reportFailed,
     required TResult Function() reportInProgress,
   }) {
@@ -949,6 +1006,9 @@ class _$_Loaded extends _Loaded {
     TResult? Function()? loaded,
     TResult? Function(String message)? error,
     TResult? Function()? reportSuccess,
+    TResult? Function()? loadingCharacter,
+    TResult? Function()? characterLoaded,
+    TResult? Function(String message)? characterError,
     TResult? Function(String message)? reportFailed,
     TResult? Function()? reportInProgress,
   }) {
@@ -963,6 +1023,9 @@ class _$_Loaded extends _Loaded {
     TResult Function()? loaded,
     TResult Function(String message)? error,
     TResult Function()? reportSuccess,
+    TResult Function()? loadingCharacter,
+    TResult Function()? characterLoaded,
+    TResult Function(String message)? characterError,
     TResult Function(String message)? reportFailed,
     TResult Function()? reportInProgress,
     required TResult orElse(),
@@ -981,6 +1044,9 @@ class _$_Loaded extends _Loaded {
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
     required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_LoadingCharacter value) loadingCharacter,
+    required TResult Function(_CharacterLoaded value) characterLoaded,
+    required TResult Function(_CharacterError value) characterError,
     required TResult Function(_ReportFailed value) reportFailed,
     required TResult Function(_ReportInProgress value) reportInProgress,
   }) {
@@ -995,6 +1061,9 @@ class _$_Loaded extends _Loaded {
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
     TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_LoadingCharacter value)? loadingCharacter,
+    TResult? Function(_CharacterLoaded value)? characterLoaded,
+    TResult? Function(_CharacterError value)? characterError,
     TResult? Function(_ReportFailed value)? reportFailed,
     TResult? Function(_ReportInProgress value)? reportInProgress,
   }) {
@@ -1009,6 +1078,9 @@ class _$_Loaded extends _Loaded {
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
     TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_LoadingCharacter value)? loadingCharacter,
+    TResult Function(_CharacterLoaded value)? characterLoaded,
+    TResult Function(_CharacterError value)? characterError,
     TResult Function(_ReportFailed value)? reportFailed,
     TResult Function(_ReportInProgress value)? reportInProgress,
     required TResult orElse(),
@@ -1092,6 +1164,9 @@ class _$_Error extends _Error {
     required TResult Function() loaded,
     required TResult Function(String message) error,
     required TResult Function() reportSuccess,
+    required TResult Function() loadingCharacter,
+    required TResult Function() characterLoaded,
+    required TResult Function(String message) characterError,
     required TResult Function(String message) reportFailed,
     required TResult Function() reportInProgress,
   }) {
@@ -1106,6 +1181,9 @@ class _$_Error extends _Error {
     TResult? Function()? loaded,
     TResult? Function(String message)? error,
     TResult? Function()? reportSuccess,
+    TResult? Function()? loadingCharacter,
+    TResult? Function()? characterLoaded,
+    TResult? Function(String message)? characterError,
     TResult? Function(String message)? reportFailed,
     TResult? Function()? reportInProgress,
   }) {
@@ -1120,6 +1198,9 @@ class _$_Error extends _Error {
     TResult Function()? loaded,
     TResult Function(String message)? error,
     TResult Function()? reportSuccess,
+    TResult Function()? loadingCharacter,
+    TResult Function()? characterLoaded,
+    TResult Function(String message)? characterError,
     TResult Function(String message)? reportFailed,
     TResult Function()? reportInProgress,
     required TResult orElse(),
@@ -1138,6 +1219,9 @@ class _$_Error extends _Error {
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
     required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_LoadingCharacter value) loadingCharacter,
+    required TResult Function(_CharacterLoaded value) characterLoaded,
+    required TResult Function(_CharacterError value) characterError,
     required TResult Function(_ReportFailed value) reportFailed,
     required TResult Function(_ReportInProgress value) reportInProgress,
   }) {
@@ -1152,6 +1236,9 @@ class _$_Error extends _Error {
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
     TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_LoadingCharacter value)? loadingCharacter,
+    TResult? Function(_CharacterLoaded value)? characterLoaded,
+    TResult? Function(_CharacterError value)? characterError,
     TResult? Function(_ReportFailed value)? reportFailed,
     TResult? Function(_ReportInProgress value)? reportInProgress,
   }) {
@@ -1166,6 +1253,9 @@ class _$_Error extends _Error {
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
     TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_LoadingCharacter value)? loadingCharacter,
+    TResult Function(_CharacterLoaded value)? characterLoaded,
+    TResult Function(_CharacterError value)? characterError,
     TResult Function(_ReportFailed value)? reportFailed,
     TResult Function(_ReportInProgress value)? reportInProgress,
     required TResult orElse(),
@@ -1230,6 +1320,9 @@ class _$_Reported extends _Reported {
     required TResult Function() loaded,
     required TResult Function(String message) error,
     required TResult Function() reportSuccess,
+    required TResult Function() loadingCharacter,
+    required TResult Function() characterLoaded,
+    required TResult Function(String message) characterError,
     required TResult Function(String message) reportFailed,
     required TResult Function() reportInProgress,
   }) {
@@ -1244,6 +1337,9 @@ class _$_Reported extends _Reported {
     TResult? Function()? loaded,
     TResult? Function(String message)? error,
     TResult? Function()? reportSuccess,
+    TResult? Function()? loadingCharacter,
+    TResult? Function()? characterLoaded,
+    TResult? Function(String message)? characterError,
     TResult? Function(String message)? reportFailed,
     TResult? Function()? reportInProgress,
   }) {
@@ -1258,6 +1354,9 @@ class _$_Reported extends _Reported {
     TResult Function()? loaded,
     TResult Function(String message)? error,
     TResult Function()? reportSuccess,
+    TResult Function()? loadingCharacter,
+    TResult Function()? characterLoaded,
+    TResult Function(String message)? characterError,
     TResult Function(String message)? reportFailed,
     TResult Function()? reportInProgress,
     required TResult orElse(),
@@ -1276,6 +1375,9 @@ class _$_Reported extends _Reported {
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
     required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_LoadingCharacter value) loadingCharacter,
+    required TResult Function(_CharacterLoaded value) characterLoaded,
+    required TResult Function(_CharacterError value) characterError,
     required TResult Function(_ReportFailed value) reportFailed,
     required TResult Function(_ReportInProgress value) reportInProgress,
   }) {
@@ -1290,6 +1392,9 @@ class _$_Reported extends _Reported {
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
     TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_LoadingCharacter value)? loadingCharacter,
+    TResult? Function(_CharacterLoaded value)? characterLoaded,
+    TResult? Function(_CharacterError value)? characterError,
     TResult? Function(_ReportFailed value)? reportFailed,
     TResult? Function(_ReportInProgress value)? reportInProgress,
   }) {
@@ -1304,6 +1409,9 @@ class _$_Reported extends _Reported {
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
     TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_LoadingCharacter value)? loadingCharacter,
+    TResult Function(_CharacterLoaded value)? characterLoaded,
+    TResult Function(_CharacterError value)? characterError,
     TResult Function(_ReportFailed value)? reportFailed,
     TResult Function(_ReportInProgress value)? reportInProgress,
     required TResult orElse(),
@@ -1318,6 +1426,490 @@ class _$_Reported extends _Reported {
 abstract class _Reported extends StarWarsStatus {
   const factory _Reported() = _$_Reported;
   const _Reported._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_LoadingCharacterCopyWith<$Res> {
+  factory _$$_LoadingCharacterCopyWith(
+          _$_LoadingCharacter value, $Res Function(_$_LoadingCharacter) then) =
+      __$$_LoadingCharacterCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadingCharacterCopyWithImpl<$Res>
+    extends _$StarWarsStatusCopyWithImpl<$Res, _$_LoadingCharacter>
+    implements _$$_LoadingCharacterCopyWith<$Res> {
+  __$$_LoadingCharacterCopyWithImpl(
+      _$_LoadingCharacter _value, $Res Function(_$_LoadingCharacter) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadingCharacter extends _LoadingCharacter {
+  const _$_LoadingCharacter() : super._();
+
+  @override
+  String toString() {
+    return 'StarWarsStatus.loadingCharacter()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadingCharacter);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String message) error,
+    required TResult Function() reportSuccess,
+    required TResult Function() loadingCharacter,
+    required TResult Function() characterLoaded,
+    required TResult Function(String message) characterError,
+    required TResult Function(String message) reportFailed,
+    required TResult Function() reportInProgress,
+  }) {
+    return loadingCharacter();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? reportSuccess,
+    TResult? Function()? loadingCharacter,
+    TResult? Function()? characterLoaded,
+    TResult? Function(String message)? characterError,
+    TResult? Function(String message)? reportFailed,
+    TResult? Function()? reportInProgress,
+  }) {
+    return loadingCharacter?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? reportSuccess,
+    TResult Function()? loadingCharacter,
+    TResult Function()? characterLoaded,
+    TResult Function(String message)? characterError,
+    TResult Function(String message)? reportFailed,
+    TResult Function()? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (loadingCharacter != null) {
+      return loadingCharacter();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_LoadingCharacter value) loadingCharacter,
+    required TResult Function(_CharacterLoaded value) characterLoaded,
+    required TResult Function(_CharacterError value) characterError,
+    required TResult Function(_ReportFailed value) reportFailed,
+    required TResult Function(_ReportInProgress value) reportInProgress,
+  }) {
+    return loadingCharacter(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_LoadingCharacter value)? loadingCharacter,
+    TResult? Function(_CharacterLoaded value)? characterLoaded,
+    TResult? Function(_CharacterError value)? characterError,
+    TResult? Function(_ReportFailed value)? reportFailed,
+    TResult? Function(_ReportInProgress value)? reportInProgress,
+  }) {
+    return loadingCharacter?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_LoadingCharacter value)? loadingCharacter,
+    TResult Function(_CharacterLoaded value)? characterLoaded,
+    TResult Function(_CharacterError value)? characterError,
+    TResult Function(_ReportFailed value)? reportFailed,
+    TResult Function(_ReportInProgress value)? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (loadingCharacter != null) {
+      return loadingCharacter(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingCharacter extends StarWarsStatus {
+  const factory _LoadingCharacter() = _$_LoadingCharacter;
+  const _LoadingCharacter._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_CharacterLoadedCopyWith<$Res> {
+  factory _$$_CharacterLoadedCopyWith(
+          _$_CharacterLoaded value, $Res Function(_$_CharacterLoaded) then) =
+      __$$_CharacterLoadedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CharacterLoadedCopyWithImpl<$Res>
+    extends _$StarWarsStatusCopyWithImpl<$Res, _$_CharacterLoaded>
+    implements _$$_CharacterLoadedCopyWith<$Res> {
+  __$$_CharacterLoadedCopyWithImpl(
+      _$_CharacterLoaded _value, $Res Function(_$_CharacterLoaded) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CharacterLoaded extends _CharacterLoaded {
+  const _$_CharacterLoaded() : super._();
+
+  @override
+  String toString() {
+    return 'StarWarsStatus.characterLoaded()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CharacterLoaded);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String message) error,
+    required TResult Function() reportSuccess,
+    required TResult Function() loadingCharacter,
+    required TResult Function() characterLoaded,
+    required TResult Function(String message) characterError,
+    required TResult Function(String message) reportFailed,
+    required TResult Function() reportInProgress,
+  }) {
+    return characterLoaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? reportSuccess,
+    TResult? Function()? loadingCharacter,
+    TResult? Function()? characterLoaded,
+    TResult? Function(String message)? characterError,
+    TResult? Function(String message)? reportFailed,
+    TResult? Function()? reportInProgress,
+  }) {
+    return characterLoaded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? reportSuccess,
+    TResult Function()? loadingCharacter,
+    TResult Function()? characterLoaded,
+    TResult Function(String message)? characterError,
+    TResult Function(String message)? reportFailed,
+    TResult Function()? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (characterLoaded != null) {
+      return characterLoaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_LoadingCharacter value) loadingCharacter,
+    required TResult Function(_CharacterLoaded value) characterLoaded,
+    required TResult Function(_CharacterError value) characterError,
+    required TResult Function(_ReportFailed value) reportFailed,
+    required TResult Function(_ReportInProgress value) reportInProgress,
+  }) {
+    return characterLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_LoadingCharacter value)? loadingCharacter,
+    TResult? Function(_CharacterLoaded value)? characterLoaded,
+    TResult? Function(_CharacterError value)? characterError,
+    TResult? Function(_ReportFailed value)? reportFailed,
+    TResult? Function(_ReportInProgress value)? reportInProgress,
+  }) {
+    return characterLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_LoadingCharacter value)? loadingCharacter,
+    TResult Function(_CharacterLoaded value)? characterLoaded,
+    TResult Function(_CharacterError value)? characterError,
+    TResult Function(_ReportFailed value)? reportFailed,
+    TResult Function(_ReportInProgress value)? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (characterLoaded != null) {
+      return characterLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CharacterLoaded extends StarWarsStatus {
+  const factory _CharacterLoaded() = _$_CharacterLoaded;
+  const _CharacterLoaded._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_CharacterErrorCopyWith<$Res> {
+  factory _$$_CharacterErrorCopyWith(
+          _$_CharacterError value, $Res Function(_$_CharacterError) then) =
+      __$$_CharacterErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$_CharacterErrorCopyWithImpl<$Res>
+    extends _$StarWarsStatusCopyWithImpl<$Res, _$_CharacterError>
+    implements _$$_CharacterErrorCopyWith<$Res> {
+  __$$_CharacterErrorCopyWithImpl(
+      _$_CharacterError _value, $Res Function(_$_CharacterError) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$_CharacterError(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CharacterError extends _CharacterError {
+  const _$_CharacterError(this.message) : super._();
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'StarWarsStatus.characterError(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CharacterError &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CharacterErrorCopyWith<_$_CharacterError> get copyWith =>
+      __$$_CharacterErrorCopyWithImpl<_$_CharacterError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String message) error,
+    required TResult Function() reportSuccess,
+    required TResult Function() loadingCharacter,
+    required TResult Function() characterLoaded,
+    required TResult Function(String message) characterError,
+    required TResult Function(String message) reportFailed,
+    required TResult Function() reportInProgress,
+  }) {
+    return characterError(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? reportSuccess,
+    TResult? Function()? loadingCharacter,
+    TResult? Function()? characterLoaded,
+    TResult? Function(String message)? characterError,
+    TResult? Function(String message)? reportFailed,
+    TResult? Function()? reportInProgress,
+  }) {
+    return characterError?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? reportSuccess,
+    TResult Function()? loadingCharacter,
+    TResult Function()? characterLoaded,
+    TResult Function(String message)? characterError,
+    TResult Function(String message)? reportFailed,
+    TResult Function()? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (characterError != null) {
+      return characterError(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_LoadingCharacter value) loadingCharacter,
+    required TResult Function(_CharacterLoaded value) characterLoaded,
+    required TResult Function(_CharacterError value) characterError,
+    required TResult Function(_ReportFailed value) reportFailed,
+    required TResult Function(_ReportInProgress value) reportInProgress,
+  }) {
+    return characterError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_LoadingCharacter value)? loadingCharacter,
+    TResult? Function(_CharacterLoaded value)? characterLoaded,
+    TResult? Function(_CharacterError value)? characterError,
+    TResult? Function(_ReportFailed value)? reportFailed,
+    TResult? Function(_ReportInProgress value)? reportInProgress,
+  }) {
+    return characterError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_LoadingCharacter value)? loadingCharacter,
+    TResult Function(_CharacterLoaded value)? characterLoaded,
+    TResult Function(_CharacterError value)? characterError,
+    TResult Function(_ReportFailed value)? reportFailed,
+    TResult Function(_ReportInProgress value)? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (characterError != null) {
+      return characterError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CharacterError extends StarWarsStatus {
+  const factory _CharacterError(final String message) = _$_CharacterError;
+  const _CharacterError._() : super._();
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$_CharacterErrorCopyWith<_$_CharacterError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1389,6 +1981,9 @@ class _$_ReportFailed extends _ReportFailed {
     required TResult Function() loaded,
     required TResult Function(String message) error,
     required TResult Function() reportSuccess,
+    required TResult Function() loadingCharacter,
+    required TResult Function() characterLoaded,
+    required TResult Function(String message) characterError,
     required TResult Function(String message) reportFailed,
     required TResult Function() reportInProgress,
   }) {
@@ -1403,6 +1998,9 @@ class _$_ReportFailed extends _ReportFailed {
     TResult? Function()? loaded,
     TResult? Function(String message)? error,
     TResult? Function()? reportSuccess,
+    TResult? Function()? loadingCharacter,
+    TResult? Function()? characterLoaded,
+    TResult? Function(String message)? characterError,
     TResult? Function(String message)? reportFailed,
     TResult? Function()? reportInProgress,
   }) {
@@ -1417,6 +2015,9 @@ class _$_ReportFailed extends _ReportFailed {
     TResult Function()? loaded,
     TResult Function(String message)? error,
     TResult Function()? reportSuccess,
+    TResult Function()? loadingCharacter,
+    TResult Function()? characterLoaded,
+    TResult Function(String message)? characterError,
     TResult Function(String message)? reportFailed,
     TResult Function()? reportInProgress,
     required TResult orElse(),
@@ -1435,6 +2036,9 @@ class _$_ReportFailed extends _ReportFailed {
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
     required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_LoadingCharacter value) loadingCharacter,
+    required TResult Function(_CharacterLoaded value) characterLoaded,
+    required TResult Function(_CharacterError value) characterError,
     required TResult Function(_ReportFailed value) reportFailed,
     required TResult Function(_ReportInProgress value) reportInProgress,
   }) {
@@ -1449,6 +2053,9 @@ class _$_ReportFailed extends _ReportFailed {
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
     TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_LoadingCharacter value)? loadingCharacter,
+    TResult? Function(_CharacterLoaded value)? characterLoaded,
+    TResult? Function(_CharacterError value)? characterError,
     TResult? Function(_ReportFailed value)? reportFailed,
     TResult? Function(_ReportInProgress value)? reportInProgress,
   }) {
@@ -1463,6 +2070,9 @@ class _$_ReportFailed extends _ReportFailed {
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
     TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_LoadingCharacter value)? loadingCharacter,
+    TResult Function(_CharacterLoaded value)? characterLoaded,
+    TResult Function(_CharacterError value)? characterError,
     TResult Function(_ReportFailed value)? reportFailed,
     TResult Function(_ReportInProgress value)? reportInProgress,
     required TResult orElse(),
@@ -1527,6 +2137,9 @@ class _$_ReportInProgress extends _ReportInProgress {
     required TResult Function() loaded,
     required TResult Function(String message) error,
     required TResult Function() reportSuccess,
+    required TResult Function() loadingCharacter,
+    required TResult Function() characterLoaded,
+    required TResult Function(String message) characterError,
     required TResult Function(String message) reportFailed,
     required TResult Function() reportInProgress,
   }) {
@@ -1541,6 +2154,9 @@ class _$_ReportInProgress extends _ReportInProgress {
     TResult? Function()? loaded,
     TResult? Function(String message)? error,
     TResult? Function()? reportSuccess,
+    TResult? Function()? loadingCharacter,
+    TResult? Function()? characterLoaded,
+    TResult? Function(String message)? characterError,
     TResult? Function(String message)? reportFailed,
     TResult? Function()? reportInProgress,
   }) {
@@ -1555,6 +2171,9 @@ class _$_ReportInProgress extends _ReportInProgress {
     TResult Function()? loaded,
     TResult Function(String message)? error,
     TResult Function()? reportSuccess,
+    TResult Function()? loadingCharacter,
+    TResult Function()? characterLoaded,
+    TResult Function(String message)? characterError,
     TResult Function(String message)? reportFailed,
     TResult Function()? reportInProgress,
     required TResult orElse(),
@@ -1573,6 +2192,9 @@ class _$_ReportInProgress extends _ReportInProgress {
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
     required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_LoadingCharacter value) loadingCharacter,
+    required TResult Function(_CharacterLoaded value) characterLoaded,
+    required TResult Function(_CharacterError value) characterError,
     required TResult Function(_ReportFailed value) reportFailed,
     required TResult Function(_ReportInProgress value) reportInProgress,
   }) {
@@ -1587,6 +2209,9 @@ class _$_ReportInProgress extends _ReportInProgress {
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
     TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_LoadingCharacter value)? loadingCharacter,
+    TResult? Function(_CharacterLoaded value)? characterLoaded,
+    TResult? Function(_CharacterError value)? characterError,
     TResult? Function(_ReportFailed value)? reportFailed,
     TResult? Function(_ReportInProgress value)? reportInProgress,
   }) {
@@ -1601,6 +2226,9 @@ class _$_ReportInProgress extends _ReportInProgress {
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
     TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_LoadingCharacter value)? loadingCharacter,
+    TResult Function(_CharacterLoaded value)? characterLoaded,
+    TResult Function(_CharacterError value)? characterError,
     TResult Function(_ReportFailed value)? reportFailed,
     TResult Function(_ReportInProgress value)? reportInProgress,
     required TResult orElse(),
