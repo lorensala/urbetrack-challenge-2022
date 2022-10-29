@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:starwars/starwars.dart';
 import '../connection/view/connection_screen.dart';
 import '../starwars/view/character_details_screen.dart';
 import '../starwars/view/character_list_screen.dart';

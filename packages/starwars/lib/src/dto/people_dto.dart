@@ -20,7 +20,7 @@ class PeopleDto with _$PeopleDto {
   People toDomain() {
     return People(
         count: count,
-        nextPage: getIdFromUrl(next ?? ''),
+        nextPage: getPageFromQueryParams(next ?? ''),
         results: results.map((x) => x.toDomain()).toList());
   }
 

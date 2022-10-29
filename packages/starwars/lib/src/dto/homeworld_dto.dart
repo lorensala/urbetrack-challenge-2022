@@ -36,7 +36,7 @@ class HomeworldDto with _$HomeworldDto {
       gravity: gravity,
       terrain: terrain,
       surfaceWater: surfaceWater,
-      population: int.parse(population),
+      population: int.tryParse(population) ?? 0,
     );
   }
 

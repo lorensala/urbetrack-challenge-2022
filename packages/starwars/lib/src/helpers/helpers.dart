@@ -12,3 +12,9 @@ int getIdFromUrl(String url) {
   final id = segments[2];
   return int.tryParse(id) ?? 0;
 }
+
+int getPageFromQueryParams(String url) {
+  final uri = Uri.parse(url);
+  final page = uri.queryParameters['page'];
+  return int.tryParse(page ?? '') ?? -1;
+}

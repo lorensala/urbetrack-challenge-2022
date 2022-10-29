@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
 import '../helpers/asset_provider.dart';
 
@@ -21,27 +22,44 @@ class MainScaffold extends StatelessWidget {
                 ThemeStatus(),
               ],
             ),
-        bottomNavigationBuilder: (context, tabsRouter) => BottomNavigationBar(
-            currentIndex: tabsRouter.activeIndex,
-            items: [
-              BottomNavigationBarItem(
-                  icon: _BottomNavBarIcon(
-                    asset: AssetProvider.characters,
-                    selected: tabsRouter.activeIndex == 0,
-                  ),
-                  label: 'Characters'),
-              BottomNavigationBarItem(
-                  icon: _BottomNavBarIcon(
-                    asset: AssetProvider.connection,
-                    selected: tabsRouter.activeIndex == 1,
-                  ),
-                  label: 'Connection'),
-            ],
-            onTap: tabsRouter.setActiveIndex),
+        bottomNavigationBuilder: (context, tabsRouter) => _BottomNavigationBar(
+            tabsRouter.activeIndex, tabsRouter.setActiveIndex),
         routes: const [
           CharacterRouter(),
           ConnectionRouter(),
         ]);
+  }
+}
+
+class _BottomNavigationBar extends HookWidget {
+  const _BottomNavigationBar(
+    this.activeIndex,
+    this.onTap, {
+    Key? key,
+  }) : super(key: key);
+
+  final int activeIndex;
+  final Function(int) onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+        currentIndex: activeIndex,
+        items: [
+          BottomNavigationBarItem(
+              icon: _BottomNavBarIcon(
+                asset: AssetProvider.characters,
+                selected: activeIndex == 0,
+              ),
+              label: 'Characters'),
+          BottomNavigationBarItem(
+              icon: _BottomNavBarIcon(
+                asset: AssetProvider.connection,
+                selected: activeIndex == 1,
+              ),
+              label: 'Connection'),
+        ],
+        onTap: onTap);
   }
 }
 

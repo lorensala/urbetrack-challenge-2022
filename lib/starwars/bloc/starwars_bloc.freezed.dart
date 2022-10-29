@@ -541,13 +541,1089 @@ abstract class _ReportSighting implements StarWarsEvent {
 }
 
 /// @nodoc
+mixin _$StarWarsStatus {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String message) error,
+    required TResult Function() reportSuccess,
+    required TResult Function(String message) reportFailed,
+    required TResult Function() reportInProgress,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? reportSuccess,
+    TResult? Function(String message)? reportFailed,
+    TResult? Function()? reportInProgress,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? reportSuccess,
+    TResult Function(String message)? reportFailed,
+    TResult Function()? reportInProgress,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_ReportFailed value) reportFailed,
+    required TResult Function(_ReportInProgress value) reportInProgress,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_ReportFailed value)? reportFailed,
+    TResult? Function(_ReportInProgress value)? reportInProgress,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_ReportFailed value)? reportFailed,
+    TResult Function(_ReportInProgress value)? reportInProgress,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StarWarsStatusCopyWith<$Res> {
+  factory $StarWarsStatusCopyWith(
+          StarWarsStatus value, $Res Function(StarWarsStatus) then) =
+      _$StarWarsStatusCopyWithImpl<$Res, StarWarsStatus>;
+}
+
+/// @nodoc
+class _$StarWarsStatusCopyWithImpl<$Res, $Val extends StarWarsStatus>
+    implements $StarWarsStatusCopyWith<$Res> {
+  _$StarWarsStatusCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$_InitialCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$StarWarsStatusCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Initial extends _Initial {
+  const _$_Initial() : super._();
+
+  @override
+  String toString() {
+    return 'StarWarsStatus.initial()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Initial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String message) error,
+    required TResult Function() reportSuccess,
+    required TResult Function(String message) reportFailed,
+    required TResult Function() reportInProgress,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? reportSuccess,
+    TResult? Function(String message)? reportFailed,
+    TResult? Function()? reportInProgress,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? reportSuccess,
+    TResult Function(String message)? reportFailed,
+    TResult Function()? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_ReportFailed value) reportFailed,
+    required TResult Function(_ReportInProgress value) reportInProgress,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_ReportFailed value)? reportFailed,
+    TResult? Function(_ReportInProgress value)? reportInProgress,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_ReportFailed value)? reportFailed,
+    TResult Function(_ReportInProgress value)? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initial extends StarWarsStatus {
+  const factory _Initial() = _$_Initial;
+  const _Initial._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$StarWarsStatusCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Loading extends _Loading {
+  const _$_Loading() : super._();
+
+  @override
+  String toString() {
+    return 'StarWarsStatus.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String message) error,
+    required TResult Function() reportSuccess,
+    required TResult Function(String message) reportFailed,
+    required TResult Function() reportInProgress,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? reportSuccess,
+    TResult? Function(String message)? reportFailed,
+    TResult? Function()? reportInProgress,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? reportSuccess,
+    TResult Function(String message)? reportFailed,
+    TResult Function()? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_ReportFailed value) reportFailed,
+    required TResult Function(_ReportInProgress value) reportInProgress,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_ReportFailed value)? reportFailed,
+    TResult? Function(_ReportInProgress value)? reportInProgress,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_ReportFailed value)? reportFailed,
+    TResult Function(_ReportInProgress value)? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading extends StarWarsStatus {
+  const factory _Loading() = _$_Loading;
+  const _Loading._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_LoadedCopyWith<$Res> {
+  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
+      __$$_LoadedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadedCopyWithImpl<$Res>
+    extends _$StarWarsStatusCopyWithImpl<$Res, _$_Loaded>
+    implements _$$_LoadedCopyWith<$Res> {
+  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Loaded extends _Loaded {
+  const _$_Loaded() : super._();
+
+  @override
+  String toString() {
+    return 'StarWarsStatus.loaded()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loaded);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String message) error,
+    required TResult Function() reportSuccess,
+    required TResult Function(String message) reportFailed,
+    required TResult Function() reportInProgress,
+  }) {
+    return loaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? reportSuccess,
+    TResult? Function(String message)? reportFailed,
+    TResult? Function()? reportInProgress,
+  }) {
+    return loaded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? reportSuccess,
+    TResult Function(String message)? reportFailed,
+    TResult Function()? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_ReportFailed value) reportFailed,
+    required TResult Function(_ReportInProgress value) reportInProgress,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_ReportFailed value)? reportFailed,
+    TResult? Function(_ReportInProgress value)? reportInProgress,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_ReportFailed value)? reportFailed,
+    TResult Function(_ReportInProgress value)? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loaded extends StarWarsStatus {
+  const factory _Loaded() = _$_Loaded;
+  const _Loaded._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$_ErrorCopyWithImpl<$Res>
+    extends _$StarWarsStatusCopyWithImpl<$Res, _$_Error>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$_Error(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Error extends _Error {
+  const _$_Error(this.message) : super._();
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'StarWarsStatus.error(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Error &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String message) error,
+    required TResult Function() reportSuccess,
+    required TResult Function(String message) reportFailed,
+    required TResult Function() reportInProgress,
+  }) {
+    return error(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? reportSuccess,
+    TResult? Function(String message)? reportFailed,
+    TResult? Function()? reportInProgress,
+  }) {
+    return error?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? reportSuccess,
+    TResult Function(String message)? reportFailed,
+    TResult Function()? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_ReportFailed value) reportFailed,
+    required TResult Function(_ReportInProgress value) reportInProgress,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_ReportFailed value)? reportFailed,
+    TResult? Function(_ReportInProgress value)? reportInProgress,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_ReportFailed value)? reportFailed,
+    TResult Function(_ReportInProgress value)? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Error extends StarWarsStatus {
+  const factory _Error(final String message) = _$_Error;
+  const _Error._() : super._();
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ReportedCopyWith<$Res> {
+  factory _$$_ReportedCopyWith(
+          _$_Reported value, $Res Function(_$_Reported) then) =
+      __$$_ReportedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ReportedCopyWithImpl<$Res>
+    extends _$StarWarsStatusCopyWithImpl<$Res, _$_Reported>
+    implements _$$_ReportedCopyWith<$Res> {
+  __$$_ReportedCopyWithImpl(
+      _$_Reported _value, $Res Function(_$_Reported) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Reported extends _Reported {
+  const _$_Reported() : super._();
+
+  @override
+  String toString() {
+    return 'StarWarsStatus.reportSuccess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Reported);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String message) error,
+    required TResult Function() reportSuccess,
+    required TResult Function(String message) reportFailed,
+    required TResult Function() reportInProgress,
+  }) {
+    return reportSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? reportSuccess,
+    TResult? Function(String message)? reportFailed,
+    TResult? Function()? reportInProgress,
+  }) {
+    return reportSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? reportSuccess,
+    TResult Function(String message)? reportFailed,
+    TResult Function()? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (reportSuccess != null) {
+      return reportSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_ReportFailed value) reportFailed,
+    required TResult Function(_ReportInProgress value) reportInProgress,
+  }) {
+    return reportSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_ReportFailed value)? reportFailed,
+    TResult? Function(_ReportInProgress value)? reportInProgress,
+  }) {
+    return reportSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_ReportFailed value)? reportFailed,
+    TResult Function(_ReportInProgress value)? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (reportSuccess != null) {
+      return reportSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reported extends StarWarsStatus {
+  const factory _Reported() = _$_Reported;
+  const _Reported._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_ReportFailedCopyWith<$Res> {
+  factory _$$_ReportFailedCopyWith(
+          _$_ReportFailed value, $Res Function(_$_ReportFailed) then) =
+      __$$_ReportFailedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$_ReportFailedCopyWithImpl<$Res>
+    extends _$StarWarsStatusCopyWithImpl<$Res, _$_ReportFailed>
+    implements _$$_ReportFailedCopyWith<$Res> {
+  __$$_ReportFailedCopyWithImpl(
+      _$_ReportFailed _value, $Res Function(_$_ReportFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$_ReportFailed(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ReportFailed extends _ReportFailed {
+  const _$_ReportFailed(this.message) : super._();
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'StarWarsStatus.reportFailed(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ReportFailed &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ReportFailedCopyWith<_$_ReportFailed> get copyWith =>
+      __$$_ReportFailedCopyWithImpl<_$_ReportFailed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String message) error,
+    required TResult Function() reportSuccess,
+    required TResult Function(String message) reportFailed,
+    required TResult Function() reportInProgress,
+  }) {
+    return reportFailed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? reportSuccess,
+    TResult? Function(String message)? reportFailed,
+    TResult? Function()? reportInProgress,
+  }) {
+    return reportFailed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? reportSuccess,
+    TResult Function(String message)? reportFailed,
+    TResult Function()? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (reportFailed != null) {
+      return reportFailed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_ReportFailed value) reportFailed,
+    required TResult Function(_ReportInProgress value) reportInProgress,
+  }) {
+    return reportFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_ReportFailed value)? reportFailed,
+    TResult? Function(_ReportInProgress value)? reportInProgress,
+  }) {
+    return reportFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_ReportFailed value)? reportFailed,
+    TResult Function(_ReportInProgress value)? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (reportFailed != null) {
+      return reportFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReportFailed extends StarWarsStatus {
+  const factory _ReportFailed(final String message) = _$_ReportFailed;
+  const _ReportFailed._() : super._();
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$_ReportFailedCopyWith<_$_ReportFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ReportInProgressCopyWith<$Res> {
+  factory _$$_ReportInProgressCopyWith(
+          _$_ReportInProgress value, $Res Function(_$_ReportInProgress) then) =
+      __$$_ReportInProgressCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ReportInProgressCopyWithImpl<$Res>
+    extends _$StarWarsStatusCopyWithImpl<$Res, _$_ReportInProgress>
+    implements _$$_ReportInProgressCopyWith<$Res> {
+  __$$_ReportInProgressCopyWithImpl(
+      _$_ReportInProgress _value, $Res Function(_$_ReportInProgress) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ReportInProgress extends _ReportInProgress {
+  const _$_ReportInProgress() : super._();
+
+  @override
+  String toString() {
+    return 'StarWarsStatus.reportInProgress()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ReportInProgress);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String message) error,
+    required TResult Function() reportSuccess,
+    required TResult Function(String message) reportFailed,
+    required TResult Function() reportInProgress,
+  }) {
+    return reportInProgress();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? reportSuccess,
+    TResult? Function(String message)? reportFailed,
+    TResult? Function()? reportInProgress,
+  }) {
+    return reportInProgress?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? reportSuccess,
+    TResult Function(String message)? reportFailed,
+    TResult Function()? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (reportInProgress != null) {
+      return reportInProgress();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Reported value) reportSuccess,
+    required TResult Function(_ReportFailed value) reportFailed,
+    required TResult Function(_ReportInProgress value) reportInProgress,
+  }) {
+    return reportInProgress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Reported value)? reportSuccess,
+    TResult? Function(_ReportFailed value)? reportFailed,
+    TResult? Function(_ReportInProgress value)? reportInProgress,
+  }) {
+    return reportInProgress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Reported value)? reportSuccess,
+    TResult Function(_ReportFailed value)? reportFailed,
+    TResult Function(_ReportInProgress value)? reportInProgress,
+    required TResult orElse(),
+  }) {
+    if (reportInProgress != null) {
+      return reportInProgress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReportInProgress extends StarWarsStatus {
+  const factory _ReportInProgress() = _$_ReportInProgress;
+  const _ReportInProgress._() : super._();
+}
+
+/// @nodoc
 mixin _$StarWarsState {
   List<Character> get characters => throw _privateConstructorUsedError;
   Character? get selectedCharacter => throw _privateConstructorUsedError;
   int get nextPage => throw _privateConstructorUsedError;
   int get count => throw _privateConstructorUsedError;
   StarWarsStatus get status => throw _privateConstructorUsedError;
-  String? get message => throw _privateConstructorUsedError;
   bool get hasReachedMax => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -567,8 +1643,10 @@ abstract class $StarWarsStateCopyWith<$Res> {
       int nextPage,
       int count,
       StarWarsStatus status,
-      String? message,
       bool hasReachedMax});
+
+  $CharacterCopyWith<$Res>? get selectedCharacter;
+  $StarWarsStatusCopyWith<$Res> get status;
 }
 
 /// @nodoc
@@ -585,11 +1663,10 @@ class _$StarWarsStateCopyWithImpl<$Res, $Val extends StarWarsState>
   @override
   $Res call({
     Object? characters = null,
-    Object? selectedCharacter = null,
+    Object? selectedCharacter = freezed,
     Object? nextPage = null,
     Object? count = null,
     Object? status = null,
-    Object? message = freezed,
     Object? hasReachedMax = null,
   }) {
     return _then(_value.copyWith(
@@ -597,7 +1674,7 @@ class _$StarWarsStateCopyWithImpl<$Res, $Val extends StarWarsState>
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
               as List<Character>,
-      selectedCharacter: null == selectedCharacter
+      selectedCharacter: freezed == selectedCharacter
           ? _value.selectedCharacter
           : selectedCharacter // ignore: cast_nullable_to_non_nullable
               as Character?,
@@ -613,15 +1690,31 @@ class _$StarWarsStateCopyWithImpl<$Res, $Val extends StarWarsState>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as StarWarsStatus,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CharacterCopyWith<$Res>? get selectedCharacter {
+    if (_value.selectedCharacter == null) {
+      return null;
+    }
+
+    return $CharacterCopyWith<$Res>(_value.selectedCharacter!, (value) {
+      return _then(_value.copyWith(selectedCharacter: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StarWarsStatusCopyWith<$Res> get status {
+    return $StarWarsStatusCopyWith<$Res>(_value.status, (value) {
+      return _then(_value.copyWith(status: value) as $Val);
+    });
   }
 }
 
@@ -639,8 +1732,12 @@ abstract class _$$_StarwarsStateCopyWith<$Res>
       int nextPage,
       int count,
       StarWarsStatus status,
-      String? message,
       bool hasReachedMax});
+
+  @override
+  $CharacterCopyWith<$Res>? get selectedCharacter;
+  @override
+  $StarWarsStatusCopyWith<$Res> get status;
 }
 
 /// @nodoc
@@ -655,11 +1752,10 @@ class __$$_StarwarsStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? characters = null,
-    Object? selectedCharacter = null,
+    Object? selectedCharacter = freezed,
     Object? nextPage = null,
     Object? count = null,
     Object? status = null,
-    Object? message = freezed,
     Object? hasReachedMax = null,
   }) {
     return _then(_$_StarwarsState(
@@ -667,7 +1763,7 @@ class __$$_StarwarsStateCopyWithImpl<$Res>
           ? _value._characters
           : characters // ignore: cast_nullable_to_non_nullable
               as List<Character>,
-      selectedCharacter: null == selectedCharacter
+      selectedCharacter: freezed == selectedCharacter
           ? _value.selectedCharacter
           : selectedCharacter // ignore: cast_nullable_to_non_nullable
               as Character?,
@@ -683,10 +1779,6 @@ class __$$_StarwarsStateCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as StarWarsStatus,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -701,10 +1793,9 @@ class _$_StarwarsState implements _StarwarsState {
   const _$_StarwarsState(
       {final List<Character> characters = const [],
       this.selectedCharacter,
-      this.nextPage = 0,
+      this.nextPage = -1,
       this.count = 0,
-      this.status = StarWarsStatus.initial,
-      this.message,
+      this.status = const StarWarsStatus.initial(),
       this.hasReachedMax = false})
       : _characters = characters;
 
@@ -728,14 +1819,12 @@ class _$_StarwarsState implements _StarwarsState {
   @JsonKey()
   final StarWarsStatus status;
   @override
-  final String? message;
-  @override
   @JsonKey()
   final bool hasReachedMax;
 
   @override
   String toString() {
-    return 'StarWarsState(characters: $characters, selectedCharacter: $selectedCharacter, nextPage: $nextPage, count: $count, status: $status, message: $message, hasReachedMax: $hasReachedMax)';
+    return 'StarWarsState(characters: $characters, selectedCharacter: $selectedCharacter, nextPage: $nextPage, count: $count, status: $status, hasReachedMax: $hasReachedMax)';
   }
 
   @override
@@ -745,13 +1834,12 @@ class _$_StarwarsState implements _StarwarsState {
             other is _$_StarwarsState &&
             const DeepCollectionEquality()
                 .equals(other._characters, _characters) &&
-            const DeepCollectionEquality()
-                .equals(other.selectedCharacter, selectedCharacter) &&
+            (identical(other.selectedCharacter, selectedCharacter) ||
+                other.selectedCharacter == selectedCharacter) &&
             (identical(other.nextPage, nextPage) ||
                 other.nextPage == nextPage) &&
             (identical(other.count, count) || other.count == count) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.message, message) || other.message == message) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax));
   }
@@ -760,11 +1848,10 @@ class _$_StarwarsState implements _StarwarsState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_characters),
-      const DeepCollectionEquality().hash(selectedCharacter),
+      selectedCharacter,
       nextPage,
       count,
       status,
-      message,
       hasReachedMax);
 
   @JsonKey(ignore: true)
@@ -781,7 +1868,6 @@ abstract class _StarwarsState implements StarWarsState {
       final int nextPage,
       final int count,
       final StarWarsStatus status,
-      final String? message,
       final bool hasReachedMax}) = _$_StarwarsState;
 
   @override
@@ -794,8 +1880,6 @@ abstract class _StarwarsState implements StarWarsState {
   int get count;
   @override
   StarWarsStatus get status;
-  @override
-  String? get message;
   @override
   bool get hasReachedMax;
   @override

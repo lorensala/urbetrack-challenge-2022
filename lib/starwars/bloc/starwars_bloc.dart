@@ -36,15 +36,16 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
       return;
     }
 
-    emit(state.copyWith(status: StarWarsStatus.loading));
+    emit(state.copyWith(status: const StarWarsStatus.loading()));
 
     final result = await _repository.getCharacter(event.id);
 
     result.fold(
-      (failure) => emit(state.copyWith(status: StarWarsStatus.error)),
+      (failure) =>
+          emit(state.copyWith(status: StarWarsStatus.error(failure.message))),
       (character) => emit(
         state.copyWith(
-          status: StarWarsStatus.loaded,
+          status: const StarWarsStatus.loaded(),
           selectedCharacter: character,
         ),
       ),
@@ -55,18 +56,17 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
       _GetPeople event, Emitter<StarWarsState> emit) async {
     if (state.hasReachedMax) return;
 
-    emit(state.copyWith(status: StarWarsStatus.loading));
+    emit(state.copyWith(status: const StarWarsStatus.loading()));
 
-    final res = await _repository.getPeople(event.page);
+    final res = await _repository.getPeople(state.nextPage);
 
     res.fold(
       (failure) => emit(state.copyWith(
-        status: StarWarsStatus.error,
-        message: failure.message,
+        status: StarWarsStatus.error(failure.message),
       )),
       (people) => emit(
         state.copyWith(
-          status: StarWarsStatus.loaded,
+          status: const StarWarsStatus.loaded(),
           characters: [...state.characters, ...people.results],
           nextPage: people.nextPage,
           count: people.count,
@@ -78,7 +78,7 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
 
   FutureOr<void> _onReportSighting(
       _ReportSighting event, Emitter<StarWarsState> emit) async {
-    emit(state.copyWith(status: StarWarsStatus.reportInProgress));
+    emit(state.copyWith(status: const StarWarsStatus.reportInProgress()));
     final res = await _repository.reportSighting(
       event.userId,
       event.dateTime,
@@ -87,11 +87,10 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
 
     res.fold(
       (failure) => emit(state.copyWith(
-        status: StarWarsStatus.reportFailed,
-        message: failure.message,
+        status: StarWarsStatus.reportFailed(failure.message),
       )),
       (success) => emit(state.copyWith(
-        status: StarWarsStatus.reported,
+        status: const StarWarsStatus.reportSuccess(),
       )),
     );
   }

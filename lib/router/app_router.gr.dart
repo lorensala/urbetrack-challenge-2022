@@ -141,7 +141,7 @@ class CharactersListRoute extends PageRouteInfo<void> {
 class CharacterDetailsRoute extends PageRouteInfo<CharacterDetailsRouteArgs> {
   CharacterDetailsRoute({
     Key? key,
-    required dynamic character,
+    required Character character,
   }) : super(
           CharacterDetailsRoute.name,
           path: 'character-details-screen',
@@ -162,7 +162,7 @@ class CharacterDetailsRouteArgs {
 
   final Key? key;
 
-  final dynamic character;
+  final Character character;
 
   @override
   String toString() {

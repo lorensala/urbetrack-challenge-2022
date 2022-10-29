@@ -27,39 +27,37 @@ class CharacterDetailsScreen extends HookWidget {
       color: Theme.of(context).colorScheme.background,
       child: BlocConsumer<StarWarsBloc, StarWarsState>(
         listener: (context, state) {
-          if (state.status == StarWarsStatus.reportFailed) {
-            context.showErrorSnackBar('Report failed');
-          }
-          if (state.status == StarWarsStatus.reported) {
-            context.showSuccessSnackBar('Reported successfully');
-          }
+          state.status.whenOrNull(
+            reportSuccess: () =>
+                context.showSuccessSnackBar('Reported successfully'),
+            reportFailed: (message) => context.showErrorSnackBar(message),
+          );
         },
         builder: (context, state) {
-          switch (state.status) {
-            case StarWarsStatus.loading:
-              return const YodaLoader();
-            case StarWarsStatus.error:
-              return const Center(child: Text('Something went wrong'));
-            default:
-              if (state.selectedCharacter == null) {
-                return const SizedBox.shrink();
-              }
+          return state.status.maybeWhen(
+              loading: () => const YodaLoader(),
+              error: (message) =>
+                  const Center(child: Text('Something went wrong')),
+              orElse: () {
+                if (state.selectedCharacter == null) {
+                  return const SizedBox.shrink();
+                }
 
-              final character = state.selectedCharacter!;
+                final character = state.selectedCharacter!;
 
-              return SingleChildScrollView(
-                child: Padding(
-                  padding: kAppPadding,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      _CharacterDetails(character: character),
-                      const _ReportButton(),
-                    ],
+                return SingleChildScrollView(
+                  child: Padding(
+                    padding: kAppPadding,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        _CharacterDetails(character: character),
+                        const _ReportButton(),
+                      ],
+                    ),
                   ),
-                ),
-              );
-          }
+                );
+              });
         },
       ),
     );
@@ -81,7 +79,7 @@ class _ReportButton extends StatelessWidget {
               builder: (context, state) {
                 return Button(
                   label: 'Report sighting',
-                  isLoading: state.status == StarWarsStatus.reportInProgress,
+                  isLoading: state.status.isLoading,
                   onPressed: () {
                     final isConnected = context.read<ConnectionCubit>().state;
                     if (!isConnected) return;
@@ -121,71 +119,26 @@ class _CharacterDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _DetailLabel(label: 'Name', value: character.name),
-        _DetailLabel(
+        DetailContainer(label: 'Name', value: character.name),
+        DetailContainer(
           label: 'Height',
           value: character.height.toString(),
           suffix: const Text('cm'),
         ),
-        _DetailLabel(
+        DetailContainer(
           label: 'Mass',
           value: character.mass.toString(),
           suffix: const Text('kg'),
         ),
-        _DetailLabel(label: 'Hair Color', value: character.hairColor),
-        _DetailLabel(label: 'Homeworld', value: character.homeworld.name),
-        _DetailLabel(
+        DetailContainer(label: 'Hair Color', value: character.hairColor),
+        DetailContainer(label: 'Homeworld', value: character.homeworld.name),
+        DetailContainer(
             label: 'Vehicules',
-            value: '${character.vehicle.map((vehicule) => vehicule.name)}'),
-        _DetailLabel(
+            value: character.vehicle.map((e) => e.name).toList().join(', ')),
+        DetailContainer(
             label: 'Starships',
-            value: '${character.starship.map((starship) => starship.name)}'),
+            value: character.starship.map((e) => e.name).toList().join(', ')),
       ],
-    );
-  }
-}
-
-class _DetailLabel extends StatelessWidget {
-  const _DetailLabel({required this.label, required this.value, this.suffix});
-
-  final String label;
-  final String value;
-  final Widget? suffix;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-          const SizedBox(height: 8),
-          Container(
-            padding: kAppPadding,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary,
-              borderRadius: kBorderRadius,
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    value,
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                ),
-                if (suffix != null) const Spacer(),
-                suffix ?? const SizedBox.shrink(),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

@@ -6,7 +6,7 @@ const kSightingUrl = 'https://jsonplaceholder.typicode.com/posts';
 abstract class StarWarsApi {
   /// Get a list of people
   ///
-  /// [path] is the url to the people list
+  /// [page] is the page number to fetch
   ///
   /// Returns a [PeopleResponse] object
   ///
@@ -15,7 +15,7 @@ abstract class StarWarsApi {
 
   // Get a character
   ///
-  /// [path] is the url to the character
+  /// [id] is the id of the character to fetch
   ///
   /// Returns a [Response] object
   ///
@@ -63,7 +63,8 @@ class SwapiApi extends StarWarsApi {
       if (page == -1) {
         return await _httpClient.get('$kBaseUrl/people/');
       }
-      return await _httpClient.get('$kBaseUrl/people/?page=$page');
+      return await _httpClient
+          .get('$kBaseUrl/people/', queryParameters: {'page': page});
     } on DioError catch (e) {
       throw StarWarsFailure(e.message);
     } catch (e) {

@@ -13,23 +13,10 @@ class CharactersListScreen extends StatelessWidget {
       buildWhen: ((previous, current) =>
           previous.characters != current.characters),
       builder: (context, state) {
-        switch (state.status) {
-          case StarWarsStatus.loading:
-            return const YodaLoader();
-          case StarWarsStatus.error:
-            return _Error(message: state.message);
-          case StarWarsStatus.reported:
-          default:
-            // return ElevatedButton(
-            //     onPressed: () {
-            //       AutoRouter.of(context).push(
-            //         CharacterDetailsRoute(
-            //             characterResponse: const CharacterResponse()),
-            //       );
-            //     },
-            //     child: const Text('Click me!'));
-            return const CharactersList();
-        }
+        return state.status.maybeWhen(
+            error: (message) => _Error(message: message),
+            loading: () => const YodaLoader(),
+            orElse: () => const CharactersList());
       },
     );
   }

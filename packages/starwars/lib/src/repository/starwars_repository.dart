@@ -10,8 +10,6 @@ class StarWarsRepository {
 
   Future<Either<StarWarsFailure, People>> getPeople(int page) async {
     try {
-      // Gets the first page of people
-
       final res = await _apiProvider.getPeople(page);
       return right(PeopleDto.fromJson(res.data).toDomain());
     } on StarWarsFailure catch (e) {
