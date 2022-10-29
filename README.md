@@ -18,7 +18,7 @@ El ejercicio consta de realizar una aplicación en donde se pueda:
 
 Personajes             |  Detalles                 |     Conexión
 :-------------------------:|:-------------------------:|:-------------------------: |
-[![Characters.png](https://i.postimg.cc/Fs7Gftyh/Simulator-Screen-Shot-i-Phone-13-Flutter-2022-10-29-at-17-57-29.png)](https://postimg.cc/HV1bKhvN)  | [![Connectio.png](https://i.postimg.cc/661fxHDg/Simulator-Screen-Shot-i-Phone-13-Flutter-2022-10-29-at-17-58-08.png)](https://postimg.cc/SjCMWGQf) | [![Characterdetails.png](https://i.postimg.cc/t4d6JDMX/Simulator-Screen-Shot-i-Phone-13-Flutter-2022-10-29-at-17-59-02.png)](https://postimg.cc/fVLyg7sF)
+[![Characters.png](https://i.postimg.cc/Fs7Gftyh/Simulator-Screen-Shot-i-Phone-13-Flutter-2022-10-29-at-17-57-29.png)](https://postimg.cc/HV1bKhvN)  | [![Characterdetails.png](https://i.postimg.cc/t4d6JDMX/Simulator-Screen-Shot-i-Phone-13-Flutter-2022-10-29-at-17-59-02.png)](https://postimg.cc/fVLyg7sF) |[![Connectio.png](https://i.postimg.cc/661fxHDg/Simulator-Screen-Shot-i-Phone-13-Flutter-2022-10-29-at-17-58-08.png)](https://postimg.cc/SjCMWGQf) 
 
 
 Tema claro y oscuro             |  Animaciones                 |    Responsive
@@ -41,7 +41,7 @@ Tema claro y oscuro             |  Animaciones                 |    Responsive
 
 ## Arquitectura utilizada
 
-[![PreviaMe.png](https://i.postimg.cc/tCNvP0Jf/PreviaMe.png)](https://postimg.cc/XpXgSzwc)
+[![Previa-Me-3.png](https://i.postimg.cc/pdF6mmFQ/Previa-Me-3.png)](https://postimg.cc/cKdmj4T6)
 ## Authors
 
 - [@lorensala](https://github.com/lorensala)
