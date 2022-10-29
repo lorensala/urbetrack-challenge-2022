@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:starwars/starwars.dart';
+import 'package:urbetrack_challenge/helpers/extensions.dart';
 
 import '../../helpers/helpers.dart';
 
@@ -120,6 +121,9 @@ class _CharacterDetails extends StatelessWidget {
     return Column(
       children: [
         DetailContainer(label: 'Name', value: character.name),
+        DetailContainer(label: 'Birth year', value: character.birthYear),
+        DetailContainer(label: 'Eye color', value: character.eyeColor),
+        DetailContainer(label: 'Género', value: character.gender),
         DetailContainer(
           label: 'Height',
           value: character.height.toString(),
@@ -133,13 +137,13 @@ class _CharacterDetails extends StatelessWidget {
         DetailContainer(label: 'Hair Color', value: character.hairColor),
         DetailContainer(label: 'Homeworld', value: character.homeworld.name),
         DetailContainer(
-            label: 'Vehicules',
-            value: getStringFromList(
-                character.vehicles.map((e) => e.name).toList())),
+          label: 'Vehicules',
+          value: character.vehicles.map((e) => e.name).toList().toBulletList(),
+        ),
         DetailContainer(
             label: 'Starships',
-            value: getStringFromList(
-                character.starships.map((e) => e.name).toList()))
+            value:
+                character.starships.map((e) => e.name).toList().toBulletList()),
       ],
     );
   }

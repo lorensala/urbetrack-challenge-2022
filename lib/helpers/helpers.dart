@@ -14,22 +14,6 @@ const kBorderRadius = BorderRadius.all(Radius.circular(8));
 
 String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
 
-extension SnackbarExtension on BuildContext {
-  void showSuccessSnackBar(String message,
-      {Duration duration = const Duration(seconds: 3)}) {
-    ScaffoldMessenger.of(this)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(buildSuccessSnackBar(this, message, duration));
-  }
-
-  void showErrorSnackBar(String message,
-      {Duration duration = const Duration(seconds: 3)}) {
-    ScaffoldMessenger.of(this)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(buildErrorSnackBar(this, message, duration));
-  }
-}
-
 SnackBar buildSuccessSnackBar(
     BuildContext context, String message, Duration duration) {
   return SnackBar(
@@ -66,13 +50,6 @@ SnackBar buildErrorSnackBar(
       ],
     ),
   );
-}
-
-String getStringFromList(List<String> list) {
-  if (list.isEmpty) return '--';
-
-  final listWithBullets = list.map((e) => '• $e').toList();
-  return listWithBullets.join('\n');
 }
 
 Map<String, String> getRandomPhrase() {
