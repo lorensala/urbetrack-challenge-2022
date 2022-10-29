@@ -13,18 +13,20 @@ class ConnectionScreen extends StatelessWidget {
     return Center(
       child: Padding(
         padding: kAppPadding,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const _ConnectionStatusText(),
-            BlocBuilder<ConnectionCubit, bool>(
-              builder: (context, conn) {
-                return Satellite(isConnected: conn);
-              },
-            ),
-            const _ConnectionMessage(),
-            const _ConnectionButton()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const _ConnectionStatusText(),
+              BlocBuilder<ConnectionCubit, bool>(
+                builder: (context, conn) {
+                  return Satellite(isConnected: conn);
+                },
+              ),
+              const _ConnectionMessage(),
+              const _ConnectionButton()
+            ],
+          ),
         ),
       ),
     );

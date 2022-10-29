@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -27,8 +28,10 @@ void main() async {
   final storage = await HydratedStorage.build(
       storageDirectory: await getTemporaryDirectory());
 
-  // Initialize bloc observer
-  Bloc.observer = MyBlocObserver();
+  // Initialize bloc observer if not in release mode
+  if (kDebugMode) {
+    Bloc.observer = MyBlocObserver();
+  }
 
   // Precache svgs
   await _precacheSvgs();

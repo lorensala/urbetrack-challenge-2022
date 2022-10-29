@@ -22,6 +22,11 @@ class MainScaffold extends StatelessWidget {
                 ThemeStatus(),
               ],
             ),
+        builder: ((context, child, animation) {
+          return SafeArea(
+            child: child,
+          );
+        }),
         bottomNavigationBuilder: (context, tabsRouter) => _BottomNavigationBar(
             tabsRouter.activeIndex, tabsRouter.setActiveIndex),
         routes: const [

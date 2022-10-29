@@ -28,13 +28,16 @@ class YodaLoader extends HookWidget {
       return () => timer.cancel();
     }, []);
 
-    return Center(
-        child: Column(
-      children: [
-        const Yoda(),
-        Text(text.value, style: Theme.of(context).textTheme.headlineLarge)
-      ],
-    ));
+    return SingleChildScrollView(
+      child: Center(
+          child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Yoda(),
+          Text(text.value, style: Theme.of(context).textTheme.headlineLarge)
+        ],
+      )),
+    );
   }
 }
 
