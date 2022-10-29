@@ -41,7 +41,7 @@ Tema claro y oscuro             |  Animaciones                 |    Responsive
 
 ## Arquitectura utilizada
 
-[![Previa-Me-3.png](https://i.postimg.cc/pdF6mmFQ/Previa-Me-3.png)](https://postimg.cc/cKdmj4T6)
+[![PreviaMe.png](https://i.postimg.cc/2SWk4RV4/PreviaMe.png)](https://postimg.cc/yDVCHGhd)
 ## Authors
 
 - [@lorensala](https://github.com/lorensala)
