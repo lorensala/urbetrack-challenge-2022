@@ -28,10 +28,10 @@ class CharacterDto with _$CharacterDto {
   Character toDomain() {
     return Character(
         id: getIdFromUrl(url),
-        birthYear: birthYear,
-        eyeColor: eyeColor.toUpperCase(),
-        gender: gender.toUpperCase(),
-        hairColor: hairColor.toUpperCase(),
+        birthYear: birthYear == 'unknown' ? '--' : birthYear.toUpperCase(),
+        eyeColor: eyeColor.capitalize,
+        gender: gender.capitalize,
+        hairColor: hairColor.capitalize,
         height: int.tryParse(height) ?? 0,
         mass: int.tryParse(mass) ?? 0,
         name: name,
