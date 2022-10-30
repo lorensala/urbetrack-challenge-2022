@@ -5,6 +5,10 @@ import 'api_failure.dart';
 const kBaseUrl = 'https://swapi.dev/api';
 const kSightingUrl = 'https://jsonplaceholder.typicode.com/posts';
 
+/// {@template starwars_api}
+/// A class which manages the connection between the [StarwarsRepository] and
+/// the data layer.
+/// {@endtemplate}
 abstract class StarWarsApi {
   /// Get a list of people
   ///

@@ -41,11 +41,11 @@ class CharacterDetailsScreen extends HookWidget {
               characterError: (message) =>
                   const Center(child: Text('Something went wrong')),
               orElse: () {
-                if (state.selectedCharacter == null) {
+                if (state.cachedCharacter == null) {
                   return const SizedBox.shrink();
                 }
 
-                final character = state.selectedCharacter!;
+                final character = state.cachedCharacter!;
 
                 return SingleChildScrollView(
                   child: Padding(
@@ -87,9 +87,9 @@ class _ReportButton extends StatelessWidget {
                     if (!isConnected) return;
                     context.read<StarWarsBloc>().add(
                         StarWarsEvent.reportSighting(
-                            userId: state.selectedCharacter!.id,
+                            userId: state.cachedCharacter!.id,
                             dateTime: DateTime.now(),
-                            characterName: state.selectedCharacter!.name));
+                            characterName: state.cachedCharacter!.name));
                   },
                   enabled: conn,
                 );
@@ -123,7 +123,7 @@ class _CharacterDetails extends StatelessWidget {
         DetailContainer(label: 'Name', value: character.name),
         DetailContainer(label: 'Birth year', value: character.birthYear),
         DetailContainer(label: 'Eye color', value: character.eyeColor),
-        DetailContainer(label: 'Género', value: character.gender),
+        DetailContainer(label: 'Gender', value: character.gender),
         DetailContainer(
           label: 'Height',
           value: character.height.toString(),
