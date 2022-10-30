@@ -52,9 +52,9 @@ class CharactersListScreen extends HookWidget {
                 return state.status.maybeWhen(loadingCharacter: () {
                   return const YodaLoader();
                 }, orElse: () {
-                  return state.selectedCharacter != null
+                  return state.cachedCharacter != null
                       ? CharacterDetailsScreen(
-                          character: state.selectedCharacter!)
+                          character: state.cachedCharacter!)
                       : const IdleScreen();
                 });
               },

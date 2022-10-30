@@ -9,7 +9,10 @@ import '../models/models.dart';
 /// presentation layer.
 /// {@endtemplate}
 class StarWarsRepository {
+  /// {@macro starwars_api}
   final StarWarsApi _apiProvider;
+
+  /// {@macro starwars_repository}
   StarWarsRepository(this._apiProvider);
 
   /// {@macro starwars_repository}

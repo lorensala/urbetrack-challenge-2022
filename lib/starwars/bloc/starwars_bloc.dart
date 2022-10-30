@@ -6,6 +6,8 @@ import 'package:starwars/starwars.dart';
 import 'package:stream_transform/stream_transform.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 
+import '../../helpers/status.dart';
+
 part 'starwars_event.dart';
 part 'starwars_state.dart';
 part 'starwars_bloc.freezed.dart';
@@ -41,22 +43,22 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
     Emitter<StarWarsState> emit,
   ) async {
     // If the character is already in the cache, return early.
-    if (state.selectedCharacter?.id == event.id) {
+    if (state.cachedCharacter?.id == event.id) {
       return;
     }
 
     // Fetch the character from the api.
-    emit(state.copyWith(status: const StarWarsStatus.loadingCharacter()));
+    emit(state.copyWith(status: const Status.loadingCharacter()));
 
     final result = await _repository.getCharacter(event.id);
 
     result.fold(
-      (failure) => emit(state.copyWith(
-          status: StarWarsStatus.characterError(failure.message))),
+      (failure) =>
+          emit(state.copyWith(status: Status.characterError(failure.message))),
       (character) => emit(
         state.copyWith(
-          status: const StarWarsStatus.characterLoaded(),
-          selectedCharacter: character,
+          status: const Status.characterLoaded(),
+          cachedCharacter: character,
         ),
       ),
     );
@@ -69,21 +71,20 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
 
     // if the status is initial, then we are fetching the first page
     // and we dont want to emit the laoding state.
-    if (state.status != const StarWarsStatus.initial()) {
-      emit(state.copyWith(status: const StarWarsStatus.loading()));
+    if (state.status != const Status.initial()) {
+      emit(state.copyWith(status: const Status.loading()));
     }
     final res = await _repository.getPeople(state.nextPage);
 
     res.fold(
       (failure) => emit(state.copyWith(
-        status: StarWarsStatus.error(failure.message),
+        status: Status.error(failure.message),
       )),
       (people) => emit(
         state.copyWith(
-          status: const StarWarsStatus.loaded(),
+          status: const Status.loaded(),
           characters: [...state.characters, ...people.results],
           nextPage: people.nextPage,
-          count: people.count,
           hasReachedMax: people.nextPage == -1,
         ),
       ),
@@ -92,7 +93,7 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
 
   FutureOr<void> _onReportSighting(
       _ReportSighting event, Emitter<StarWarsState> emit) async {
-    emit(state.copyWith(status: const StarWarsStatus.reportInProgress()));
+    emit(state.copyWith(status: const Status.reportInProgress()));
 
     final res = await _repository.reportSighting(
       event.userId,
@@ -102,10 +103,10 @@ class StarWarsBloc extends Bloc<StarWarsEvent, StarWarsState> {
 
     res.fold(
       (failure) => emit(state.copyWith(
-        status: StarWarsStatus.reportFailed(failure.message),
+        status: Status.reportFailed(failure.message),
       )),
       (success) => emit(state.copyWith(
-        status: const StarWarsStatus.reportSuccess(),
+        status: const Status.reportSuccess(),
       )),
     );
   }
